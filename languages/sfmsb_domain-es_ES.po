@@ -1,0 +1,63 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Simple Follow Me Social Buttons Widget\n"
+"POT-Creation-Date: 2014-07-03 15:39+0100\n"
+"PO-Revision-Date: 2014-07-03 16:04+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.5\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: es\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: includes/widget.php:27
+msgid "Social"
+msgstr "Social"
+
+#: includes/widget.php:30
+msgid "Follow me on:"
+msgstr "Sígueme en:"
+
+#: includes/widget.php:52
+msgid "Simple follow me social buttons"
+msgstr "Simple follow me social buttons"
+
+#: includes/widget.php:74
+msgid "Title"
+msgstr "Título"
+
+#: includes/widget.php:85
+msgid "Text"
+msgstr "Texto"
+
+#: includes/widget.php:104
+msgid " URL"
+msgstr "URL"
+
+#: includes/widget.php:119
+msgid "Style"
+msgstr "Estilo"
+
+#: includes/widget.php:135
+msgid "Size"
+msgstr "Tamaño"
+
+#: includes/widget.php:154
+msgid "Position"
+msgstr "Posición"
+
+#: includes/widget.php:163
+msgid "Icons under text"
+msgstr "Iconos bajo texto"
+
+#: includes/widget.php:171
+msgid "Icons next to text"
+msgstr "Iconos junto texto"
