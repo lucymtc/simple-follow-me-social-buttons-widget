@@ -76,7 +76,7 @@ final class SFMSB {
 			add_action( 'widgets_init', array('Sfmsb_Widget', 'register_widgets') );
 			
 			if( is_admin() ) {
-				add_action( 'admin_enqueue_scripts', array('Sfmsb_Widget', 'add_admin_style') );
+				add_action( 'admin_enqueue_scripts', array('Sfmsb_Widget', 'add_admin_scripts') );
 			} else{
 				add_action( 'wp_enqueue_scripts', array('Sfmsb_Widget', 'add_style') );
 			}
@@ -118,22 +118,24 @@ final class SFMSB {
 		  
 		  private function variables(){
 		  	
-			$this->buttons_styles 	 = array('default'  => 'Default', 
-											 'dark'     => 'Dark', 
-											 'light'    => 'Light', 
-											 'dark_bn'  => 'Dark Grey' ,
-											 'light_bn' => 'Light Grey');
-											 
-			$this->buttons_sizes 	 = array('L' => '48', 'M' => '38', 'S' => '28');
 			
-			$this->available_buttons = array('twitter'     => 'Twitter', 
-											 'facebook'    => 'Facebook',
-											 'google-plus' => 'Google+', 
-											 'rss'         => 'RSS',
-											 'linkedin'    => 'Linkedin',
-											 'pinterest'   => 'Pinterest',
-											 'youtube'     => 'Youtube',
-											 'wordpress'   => 'Wordpress');
+			$this->available_buttons = array('twitter'     => array('name' => 'Twitter',
+																	'color' => '84b3dc'), 
+											 'facebook'    => array('name' => 'Facebook',
+																	'color' => '6c97bf'), 
+											 'googleplus'  => array('name' => 'Google+',
+																	'color' => 'd68778'),  
+											 'feed'        => array('name' => 'Rss Feed',
+																	'color' => 'e1b96a'), 
+											 'linkedin'     => array('name' => 'Linkedin',
+																	'color' => '6c97bf'), 
+											 'pinterest'    => array('name' => 'Pinterest',
+																	'color' => 'd68678'), 
+											 'wordpress'    => array('name' => 'WordPress',
+																	'color' => '6b96be'), 
+											 'github'	   => array('name' => 'Github',
+																	'color' => '717272')
+											 );
 			
 		  }
 		

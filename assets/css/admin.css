@@ -17,13 +17,15 @@
 
 div.widget[id*=_sfmsb] input[type=checkbox],
 div.widget[id*=_sfmsb] input[type=radio],
-div.widget[id*=_sfmsb] select{
+div.widget[id*=_sfmsb] select,
+div.widget[id*=_sfmsb] input.s{
 	margin-top: -15px;
 }
 
-div.widget[id*=_sfmsb] label.main.description{
-	font-weight:bold;
+div.widget[id*=_sfmsb] input.s{
+	width:100px;
 }
+
 
 
 /* @end */
