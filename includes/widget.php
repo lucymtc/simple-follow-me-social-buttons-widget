@@ -15,7 +15,6 @@ class Sfmsb_Widget extends WP_Widget {
 
 	/**
 	 * Constructor. 
-	 * Set the default widget options and create widget.
 	 * 
 	 * @since 1.0
 	 */
@@ -23,11 +22,12 @@ class Sfmsb_Widget extends WP_Widget {
 	function __construct() {
 		
 			$this->defaults = array(
-				'style'    => 'default',
 				'title'    => __('Social', 'sfmsb_domain'),
-				'size'     => 'L',
+				'size'     => '20',
 				'position' => 'under',
-				'text'     => __('Follow me on:', 'sfmsb_domain')		
+				'text'     => __('Follow me on:', 'sfmsb_domain'),
+				'color'    => '',
+				'style'    => 'circle'
 			);
 			
 			
@@ -55,7 +55,6 @@ class Sfmsb_Widget extends WP_Widget {
 	
 	/**
 	 * Form 
-	 * Output the widget form
 	 * 
 	 * @param $instance
 	 * @since 1.0
@@ -101,7 +100,7 @@ class Sfmsb_Widget extends WP_Widget {
 											   type="checkbox" 
 											   value="1" <?php checked(1, $instance[ 'enable_' . $key ] ) ?> />
 					
-					<label class="description" for="<?php echo $this->get_field_id( 'url_' . $key ); ?>"><?php _e( $item . ' URL', 'sfmsb_domain'); ?></label>
+					<label class="description" for="<?php echo $this->get_field_id( 'url_' . $key ); ?>"><?php _e( $item['name'] . ' URL', 'sfmsb_domain'); ?></label>
 					
 					<input id="<?php echo $this->get_field_id( 'url_' . $key ) ?>"
 						   class="widefat"	 
@@ -116,42 +115,39 @@ class Sfmsb_Widget extends WP_Widget {
 			
 			<!-- *** STYLE select ***-->
 				<p>
-					<label class="main description" for="<?php echo $this->get_field_id( 'style' ); ?>"><?php _e('Style', 'sfmsb_domain'); ?></label>	
+					<label class="description" for="<?php echo $this->get_field_id( 'style' ); ?>"><b><?php _e('Style', 'sfmsb_domain'); ?></b></label>	
 							<select id="<?php echo $this->get_field_id( 'style' ); ?>" name="<?php echo $this->get_field_name( 'style' ); ?>">
-								
-								<?php  foreach( $this->styles as $key => $item ){ ?>
-									
-										<option value="<?php echo $key ?>" <?php selected($instance[ 'style' ], $key) ?>>
-											<?php _e($item, 'sfmsb_domain') ?>
-										</option>
-										
-								<?php } ?>
-								
+								<option value="circle" <?php selected($instance[ 'style' ], 'circle') ?>><?php _e('Rounded', 'sfmsb_domain') ?></option>
+								<option value="square" <?php selected($instance[ 'style' ], 'square') ?>><?php _e('Squared', 'sfmsb_domain') ?></option>
 							</select>
 				</p>
 				
+				<script type='text/javascript'>
+		            jQuery(document).ready(function($) {
+		                $('.sfmsb-color-picker').wpColorPicker();
+		            });
+       			 </script>
+       			 
+       			 <p>
+           			 <label class="description" for="<?php echo $this->get_field_id( 'color' ); ?>"><b><?php _e( 'Color', 'sfmsb_domain' ); ?></b></label>
+            		 <input class="sfmsb-color-picker" type="text" id="<?php echo $this->get_field_id( 'color' ); ?>" name="<?php echo $this->get_field_name( 'color' ); ?>" value="<?php echo esc_attr( $instance['color'] ); ?>" />                            
+        		</p>
+				
 				<!-- *** SIZES radios ***-->
 				<p>
-					<label class="main description" for="<?php echo $this->get_field_id( 'size' ); ?>"><?php _e('Size', 'sfmsb_domain'); ?></label>	
+					<label class="description" for="<?php echo $this->get_field_id( 'size' ); ?>"><b><?php _e('Size', 'sfmsb_domain'); ?></b></label>	
 							&nbsp;&nbsp;&nbsp;
 							
-							<? foreach ( $this->sizes as $key => $item ){ ?>
-								
-								<input id="<?php echo $this->get_field_id( 'size' ); ?>" 
-								   name="<?php echo $this->get_field_name( 'size' ); ?>" 
-								   type="radio" 
-								   value="<?php echo $key ?>" <?php checked($key, $instance['size']) ?> />
-								   
-								   <label class="description"><?php _e($key, 'sfmsb_domain'); ?></label>
-									&nbsp;
-								
-							<? } ?>	
+						<input class="s"
+					   name="<?php echo $this->get_field_name( 'size' ); ?>" 
+					   type="text" 
+					   value="<?php echo esc_attr( $instance['size'] ); ?>" /> px
 							
 				</p>
 				
 				<!-- *** POSITIONS radios ***-->
 				<p>
-					<label class="main description" for="<?php echo $this->get_field_id( 'position' ); ?>"><?php _e('Position', 'sfmsb_domain'); ?></label>	
+					<label class="description" for="<?php echo $this->get_field_id( 'position' ); ?>"><b><?php _e('Position', 'sfmsb_domain'); ?></b></label>	
 							<br/>
 							
 								
@@ -179,7 +175,6 @@ class Sfmsb_Widget extends WP_Widget {
 
 	/**
 	 * Update 
-	 * Sets the new values of the instance
 	 * 
 	 * @param  $new_instance new values
 	 * @param  $old_instance old values
@@ -201,16 +196,16 @@ class Sfmsb_Widget extends WP_Widget {
 				
 			} 
 			
-			$instance['size']     = esc_attr($new_instance['size']);
-			$instance['style']    = esc_attr($new_instance['style']);
+			$instance['size']     = absint(esc_attr($new_instance['size']));
 			$instance['position'] = esc_attr($new_instance['position']);
+			$instance['style']    = esc_attr($new_instance['style']);
+			$instance['color'] 	  = esc_attr($new_instance['color']);
 			
 			return $instance;
 	}
 		
 	/**
 	 * widget
-	 * Displays the widget
 	 *
 	 * @param array $args Arguments
 	 * @param array $instance Settings for the widget
@@ -233,20 +228,38 @@ class Sfmsb_Widget extends WP_Widget {
 				
 				if ( !empty( $title ) ) { echo $before_title . $title  . $after_title; };
 				
-				if ( !empty( $instance['text'] ) ) { echo '<span class="sfmsb-text">' . $instance['text']  . '</span>'; };
+				switch( TRUE ) {
+						
+					case $instance['size'] <= 25	:
+						$text_size = 14;
+					break;	
+						
+					case $instance['size'] > 25 && $instance['size'] < 35 :
+						$text_size = $instance['size'] / 2 + 3;
+					break;	
+					
+					case $instance['size'] >= 35 :
+						$text_size = $instance['size'] / 2;
+					break;	
+				}
+				
+				if ( !empty( $instance['text'] ) ) { echo '<span class="sfmsb-text" style="font-size:'. $text_size .'px;">' . $instance['text']  . '</span>'; };
 					
 					// ** do_action
 					do_action('sfmsb_widget_before_links');
 					
 					foreach ( SFMSB::instance()->available_buttons as $key => $item ) {
-							
-						$size = SFMSB::instance()->buttons_sizes[$instance['size']] * 2;
-						$image_suffix  = $size . '-' . SFMSB::instance()->buttons_sizes[$instance['size']] ;
 						
 						if( isset( $instance['enable_' . $key] ) &&  $instance['enable_' . $key] == 1 ) {
 							
+							if( $instance['color'] == '') {
+								$color = '#' . $item['color'];
+							}else{
+								$color = $instance['color'];
+							}
+							
 							echo '<a target="_blank" href="' . esc_url($instance['url_' . $key]) . '">';
-							echo '<img src="' . SFMSB_PLUGIN_URL . 'assets/images/icon-' . $instance['style'] . '-'. $key .'-'. $image_suffix .'.png" alt="' . ucfirst($item) . '" />';
+							echo '<span class="sfmsb-icon-'. $key .'-'. $instance['style'] .'" style="color:' . $color . ';font-size:'. $instance['size'] .'px"></span>';
 							echo '</a>';
 						}	
 					} // foreach
@@ -285,8 +298,10 @@ class Sfmsb_Widget extends WP_Widget {
 	 * add_admin_style
 	 * @since 1.0.0
 	 */
-	public static function add_admin_style() {
-		wp_enqueue_style('sfmsb-admin-style', SFMSB_PLUGIN_URL . 'assets/css/admin.css');
+	public static function add_admin_scripts() {
+		 wp_enqueue_style('sfmsb-admin-style', SFMSB_PLUGIN_URL . 'assets/css/admin.css');
+		 wp_enqueue_style( 'wp-color-picker' );        
+         wp_enqueue_script( 'wp-color-picker' );  
 	}
 	
 	

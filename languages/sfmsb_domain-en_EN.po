@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Simple Follow Me Social Buttons Widget\n"
-"POT-Creation-Date: 2014-07-03 15:39+0100\n"
-"PO-Revision-Date: 2014-07-03 15:40+0100\n"
+"POT-Creation-Date: 2014-07-08 10:16+0100\n"
+"PO-Revision-Date: 2014-07-08 10:16+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: includes/widget.php:27
+#: includes/widget.php:25
 msgid "Social"
 msgstr ""
 
-#: includes/widget.php:30
+#: includes/widget.php:28
 msgid "Follow me on:"
 msgstr ""
 
@@ -30,34 +30,46 @@ msgstr ""
 msgid "Simple follow me social buttons"
 msgstr ""
 
-#: includes/widget.php:74
+#: includes/widget.php:73
 msgid "Title"
 msgstr ""
 
-#: includes/widget.php:85
+#: includes/widget.php:84
 msgid "Text"
 msgstr ""
 
-#: includes/widget.php:104
+#: includes/widget.php:103
 msgid " URL"
 msgstr ""
 
-#: includes/widget.php:119
+#: includes/widget.php:118
 msgid "Style"
 msgstr ""
 
-#: includes/widget.php:135
+#: includes/widget.php:120
+msgid "Rounded"
+msgstr ""
+
+#: includes/widget.php:121
+msgid "Squared"
+msgstr ""
+
+#: includes/widget.php:132
+msgid "Color"
+msgstr ""
+
+#: includes/widget.php:138
 msgid "Size"
 msgstr ""
 
-#: includes/widget.php:154
+#: includes/widget.php:150
 msgid "Position"
 msgstr ""
 
-#: includes/widget.php:163
+#: includes/widget.php:159
 msgid "Icons under text"
 msgstr ""
 
-#: includes/widget.php:171
+#: includes/widget.php:167
 msgid "Icons next to text"
 msgstr ""
