@@ -1,6 +1,11 @@
 Simple Follow Me Social Buttons Widget 
 ========================================
 
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Add follow me social buttons. Uses font icons, ready for Retina Display.
+
 No settings page, only a simple widget to add to your widget areas. 
 It displays the Follow Me social buttons. No images, this widget uses a font icons so it makes it ready for Retina Display.
 
