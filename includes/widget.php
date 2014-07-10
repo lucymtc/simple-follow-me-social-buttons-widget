@@ -91,6 +91,7 @@ class Sfmsb_Widget extends WP_Widget {
 			
 			<!-- *** ENABLE checkbox & URL text ***-->
 			
+			
 			<? foreach ( $this->available_buttons as $key => $item ) { ?>
 			
 				<p>
