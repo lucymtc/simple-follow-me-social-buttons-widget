@@ -39,20 +39,24 @@
 	margin-right:10px;	
 }
 
+.sfmsb-follow-social-buttons a:hover{
+	text-decoration:none !important;
+}
+
 
 @font-face {
-	font-family: 'wp_social_buttons';
-	src:url('../fonts/wp_social_buttons.eot?6rn0ly');
-	src:url('../fonts/wp_social_buttons.eot?#iefix6rn0ly') format('embedded-opentype'),
-		url('../fonts/wp_social_buttons.woff?6rn0ly') format('woff'),
-		url('../fonts/wp_social_buttons.ttf?6rn0ly') format('truetype'),
-		url('../fonts/wp_social_buttons.svg?6rn0ly#wp_social_buttons') format('svg');
+	font-family: 'social_buttons';
+	src:url('../fonts/social_buttons.eot?6rn0ly');
+	src:url('../fonts/social_buttons.eot?#iefix6rn0ly') format('embedded-opentype'),
+		url('../fonts/social_buttons.woff?6rn0ly') format('woff'),
+		url('../fonts/social_buttons.ttf?6rn0ly') format('truetype'),
+		url('../fonts/social_buttons.svg?6rn0ly#social_buttons') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
 
 [class^="sfmsb-icon-"], [class*=" sfmsb-icon-"] {
-	font-family: 'wp_social_buttons';
+	font-family: 'social_buttons';
 	speak: none;
 	font-style: normal;
 	font-weight: normal;
