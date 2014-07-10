@@ -38,6 +38,9 @@ Icons from www.flaticon.com
 
 == Changelog ==
 
+= 1.2 =
+* Quick fix on fonts missing
+
 = 1.1 =
 * Change set of icons
 * Added Instagram, Youtube and Vimeo icons
