@@ -100,15 +100,30 @@ class Sfmsb_Widget extends WP_Widget {
 											   name="<?php echo $this->get_field_name( 'enable_' . $key ) ?>" 
 											   type="checkbox" 
 											   value="1" <?php checked(1, $instance[ 'enable_' . $key ] ) ?> />
+											   
+					<?php 
 					
-					<label class="description" for="<?php echo $this->get_field_id( 'url_' . $key ); ?>"><?php _e( $item['name'] . ' URL', 'sfmsb_domain'); ?></label>
+						if( $key == 'email' ) {
+
+							$label = __( 'Your ' . $item['name'], 'sfmsb_domain');
+							$value = esc_attr( $instance['url_' . $key] );
+							
+						} else {
+							
+							$label = __( $item['name'] . ' URL', 'sfmsb_domain');
+							$value = esc_url( $instance['url_' . $key] );
+						}
+					
+					?>						   
+					
+					<label class="description" for="<?php echo $this->get_field_id( 'url_' . $key ); ?>"><?php echo $label; ?></label>
 					
 					<input id="<?php echo $this->get_field_id( 'url_' . $key ) ?>"
 						   class="widefat"	 
 						   name="<?php echo $this->get_field_name( 'url_' . $key );  ?>" 
 				    	   type="text" 
 				    	   class=""
-						   value="<?php echo esc_url( $instance['url_' . $key] ); ?>"/>
+						   value="<?php echo $value ?>"/>
 				</p>
 			
 			<? } // foreach available buttons ?>
@@ -192,7 +207,13 @@ class Sfmsb_Widget extends WP_Widget {
 			
 			foreach( $this->available_buttons as $key => $item ){
 					
-				$instance['url_' . $key] 	 = esc_url($new_instance['url_' . $key]);
+				if( $key == 'email' ) {
+					$value = esc_attr($new_instance['url_' . $key]);
+				} else {
+					$value = esc_url($new_instance['url_' . $key]);
+				}
+					
+				$instance['url_' . $key] 	 = $value;
 				$instance['enable_' . $key]  = absint($new_instance['enable_' . $key]);
 				
 			} 
@@ -259,7 +280,13 @@ class Sfmsb_Widget extends WP_Widget {
 								$color = $instance['color'];
 							}
 							
-							echo '<a target="_blank" href="' . esc_url($instance['url_' . $key]) . '">';
+							if( $key == 'email' ) {
+								$href = 'mailto:' . esc_attr($instance['url_' . $key]);
+							} else {
+								$href = esc_url($instance['url_' . $key]);
+							}
+							
+							echo '<a target="_blank" href="' . $href . '">';
 							echo '<span class="sfmsb-icon-'. $key .'-'. $instance['style'] .'" style="color:' . $color . ';font-size:'. $instance['size'] .'px"></span>';
 							echo '</a>';
 						}	

@@ -26,6 +26,8 @@ Availbale Icons:
 	* Youtube 
 	* Vimeo 
 	* Instagram
+	* Email
+	* SoundCloud
 
 Icons from www.flaticon.com
 
@@ -37,6 +39,9 @@ Icons from www.flaticon.com
 4. Go to Appearance -> Widgets and look for the widget Simple follow me social buttons
 
 == Changelog ==
+
+= 1.3 =
+* Added Email and SoundCloud icons
 
 = 1.2 =
 * Quick fix on fonts missing
