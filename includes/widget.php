@@ -319,7 +319,7 @@ class Sfmsb_Widget extends WP_Widget {
 	 * @since 1.0.0
 	 */
 	public static function add_style() {
-		wp_enqueue_style('sfmsb-style', SFMSB_PLUGIN_URL . 'assets/css/style.css');
+		wp_enqueue_style('sfmsb-style', SFMSB_PLUGIN_URL . 'assets/css/style.css', array(), SFMSB_PLUGIN_VERSION);
 	}
 	
 	/**
@@ -327,7 +327,7 @@ class Sfmsb_Widget extends WP_Widget {
 	 * @since 1.0.0
 	 */
 	public static function add_admin_scripts() {
-		 wp_enqueue_style('sfmsb-admin-style', SFMSB_PLUGIN_URL . 'assets/css/admin.css');
+		 wp_enqueue_style('sfmsb-admin-style', SFMSB_PLUGIN_URL . 'assets/css/admin.css', array(), SFMSB_PLUGIN_VERSION);
 		 wp_enqueue_style( 'wp-color-picker' );        
          wp_enqueue_script( 'wp-color-picker' );  
 	}
