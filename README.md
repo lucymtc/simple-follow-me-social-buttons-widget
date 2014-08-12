@@ -40,6 +40,9 @@ Icons from www.flaticon.com
 
 == Changelog ==
 
+= 1.3.1 =
+* Added version number to enqueue style
+
 = 1.3 =
 * Added Email and SoundCloud icons
 
