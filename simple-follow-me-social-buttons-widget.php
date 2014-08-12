@@ -2,7 +2,7 @@
 /**
 Plugin Name: Simple Follow Me Social Buttons Widget
 Description: Widget to add some of the most popular follow me social buttons. Retina ready.
-Version: 	 1.2
+Version: 	 1.3
 Author: 	 Lucy Tomás
 Author URI:  https://wordpress.org/support/profile/lucymtc
 License: 	 GPLv2
@@ -107,7 +107,7 @@ final class SFMSB {
 		  	if( !defined('SFMSB_PLUGIN_DIR') )  { define('SFMSB_PLUGIN_DIR', plugin_dir_path( __FILE__ )); }
 			if( !defined('SFMSB_PLUGIN_URL') )  { define('SFMSB_PLUGIN_URL', plugin_dir_url( __FILE__ ));  }
 			if( !defined('SFMSB_PLUGIN_FILE') ) { define('SFMSB_PLUGIN_FILE',  __FILE__ );  }
-			if( !defined('SFMSB_PLUGIN_VERSION') )  { define('SFMSB_PLUGIN_VERSION', '1.2');  } 
+			if( !defined('SFMSB_PLUGIN_VERSION') )  { define('SFMSB_PLUGIN_VERSION', '1.3');  } 
 			
 		  }
 		  
@@ -140,7 +140,11 @@ final class SFMSB {
 											 'youtube'     => array('name' => 'Youtube',
 																	'color' => 'd68778'),
 											 'vimeo'     => array('name' => 'Vimeo',
-																	'color' => '4b6079')																																																			
+																	'color' => '4b6079'),
+											 'email'     => array('name' => 'Email',
+																	'color' => '84b3dc'),
+											 'soundcloud'     => array('name' => 'SoundCloud',
+																	'color' => 'f6a46a')																																																															
 											 );
 			
 		  }
