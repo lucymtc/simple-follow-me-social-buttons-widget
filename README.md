@@ -40,6 +40,9 @@ Icons from www.flaticon.com
 
 == Changelog ==
 
+= 1.4 =
+* Added option to enter email address or url to any contact page for the email icon
+
 = 1.3.1 =
 * Added version number to enqueue style
 
