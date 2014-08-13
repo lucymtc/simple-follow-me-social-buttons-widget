@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Simple Follow Me Social Buttons Widget\n"
-"POT-Creation-Date: 2014-08-12 16:38+0100\n"
-"PO-Revision-Date: 2014-08-12 16:38+0100\n"
+"POT-Creation-Date: 2014-08-13 12:44+0100\n"
+"PO-Revision-Date: 2014-08-13 12:44+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -39,41 +39,44 @@ msgid "Text"
 msgstr "Texto"
 
 #: includes/widget.php:108
-msgid "Your "
-msgstr "Tu "
+msgid "Your Email address or other contact URL"
+msgstr "Tu dirección email u otra URL de contacto"
 
-#: includes/widget.php:113
+#: includes/widget.php:124
 msgid " URL"
 msgstr "URL"
 
-#: includes/widget.php:134
+#: includes/widget.php:145
 msgid "Style"
 msgstr "Estilo"
 
-#: includes/widget.php:136
+#: includes/widget.php:147
 msgid "Rounded"
 msgstr "Redondo"
 
-#: includes/widget.php:137
+#: includes/widget.php:148
 msgid "Squared"
 msgstr "Cuadrado"
 
-#: includes/widget.php:148
+#: includes/widget.php:159
 msgid "Color"
 msgstr "Color"
 
-#: includes/widget.php:154
+#: includes/widget.php:165
 msgid "Size"
 msgstr "Tamaño"
 
-#: includes/widget.php:166
+#: includes/widget.php:177
 msgid "Position"
 msgstr "Posición"
 
-#: includes/widget.php:175
+#: includes/widget.php:186
 msgid "Icons under text"
 msgstr "Iconos bajo texto"
 
-#: includes/widget.php:183
+#: includes/widget.php:194
 msgid "Icons next to text"
 msgstr "Iconos junto texto"
+
+#~ msgid "Your "
+#~ msgstr "Tu "

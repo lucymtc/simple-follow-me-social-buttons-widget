@@ -105,8 +105,19 @@ class Sfmsb_Widget extends WP_Widget {
 					
 						if( $key == 'email' ) {
 
-							$label = __( 'Your ' . $item['name'], 'sfmsb_domain');
-							$value = esc_attr( $instance['url_' . $key] );
+							$label = __( 'Your Email address or other contact URL', 'sfmsb_domain');	
+							
+							$instance['url_' . $key] = str_replace('mailto:', '', $instance['url_' . $key]);
+							if( filter_var( $instance['url_' . $key], FILTER_VALIDATE_EMAIL ) ){
+							
+								$value = esc_attr( $instance['url_' . $key] );	
+							
+							} else {
+								
+								$value = esc_url( $instance['url_' . $key] );
+							
+							} // if valid email
+							
 							
 						} else {
 							
@@ -208,9 +219,21 @@ class Sfmsb_Widget extends WP_Widget {
 			foreach( $this->available_buttons as $key => $item ){
 					
 				if( $key == 'email' ) {
-					$value = esc_attr($new_instance['url_' . $key]);
+					$new_instance['url_' . $key] = str_replace('mailto:', '', $new_instance['url_' . $key]);
+					
+					if( filter_var( $new_instance['url_' . $key], FILTER_VALIDATE_EMAIL ) ){
+							
+						$value = esc_attr( $new_instance['url_' . $key] );
+							
+					} else {
+								
+						$value = esc_url( $new_instance['url_' . $key] );
+							
+					} // if valid email	
+
+
 				} else {
-					$value = esc_url($new_instance['url_' . $key]);
+					$value = esc_url( $new_instance['url_' . $key] );
 				}
 					
 				$instance['url_' . $key] 	 = $value;
@@ -280,9 +303,12 @@ class Sfmsb_Widget extends WP_Widget {
 								$color = $instance['color'];
 							}
 							
-							if( $key == 'email' ) {
+							if( $key == 'email' && filter_var( $instance['url_' . $key], FILTER_VALIDATE_EMAIL ) ) {
+
 								$href = 'mailto:' . esc_attr($instance['url_' . $key]);
+
 							} else {
+
 								$href = esc_url($instance['url_' . $key]);
 							}
 							
