@@ -43,15 +43,14 @@ class Sfmsb_Widget extends WP_Widget {
 				'description' => 'Display follow me social buttons'
 			);
 			
+			
+			$this->styles 		     = SFMSB::instance()->buttons_styles;
+			$this->sizes  		     = SFMSB::instance()->buttons_sizes;
 			$this->available_buttons = SFMSB::instance()->available_buttons;
 			
 			
 			parent::__construct( 'sfmsb_settings', __( 'Simple follow me social buttons', 'sfmsb_domain' ), $widget_ops );
-			 
-			wp_enqueue_script( 'wp-color-picker' );
-		 	wp_register_script( 'sfmsb-admin-widget-script', SFMSB_PLUGIN_URL . 'assets/js/widget.js', array('jquery'), SFMSB_PLUGIN_VERSION );
-		 	 
-		 	add_action( "admin_print_scripts-widgets.php", array('Sfmsb_Widget', 'admin_widget_scripts') );
+			
 	}
 	
 	/**
@@ -71,7 +70,7 @@ class Sfmsb_Widget extends WP_Widget {
 			<!-- *** TITLE text ***-->
 			
 			<p> 
-				<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e('Title', 'sfmsb_domain'); ?></label>
+				<label class="description" for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e('Title', 'sfmsb_domain'); ?></label>
 				
 				<input class="widefat" 
 					   name="<?php echo $this->get_field_name( 'title' ); ?>" 
@@ -82,7 +81,7 @@ class Sfmsb_Widget extends WP_Widget {
 			<!-- *** TEXT extra ***-->
 			
 			<p> 
-				<label for="<?php echo $this->get_field_id( 'text' ); ?>"><?php _e('Text', 'sfmsb_domain'); ?></label>
+				<label class="description" for="<?php echo $this->get_field_id( 'text' ); ?>"><?php _e('Text', 'sfmsb_domain'); ?></label>
 				
 				<input class="widefat" 
 					   name="<?php echo $this->get_field_name( 'text' ); ?>" 
@@ -92,115 +91,110 @@ class Sfmsb_Widget extends WP_Widget {
 			
 			<!-- *** ENABLE checkbox & URL text ***-->
 			
-			<div class="sfmsb-icons-container">
 			
-			<?php
+			<? foreach ( $this->available_buttons as $key => $item ) { ?>
 			
-				foreach ( $this->available_buttons as $key => $item ) { 
-			
-					( $instance['color'] == '') ? $color = '#' . $item['color'] : $color = $instance['color'];
+				<p>
 					
+					<input id="<?php echo $this->get_field_name( 'enable_' . $key ) ?>" 
+											   name="<?php echo $this->get_field_name( 'enable_' . $key ) ?>" 
+											   type="checkbox" 
+											   value="1" <?php checked(1, $instance[ 'enable_' . $key ] ) ?> />
+											   
+					<?php 
 					
-					if( $key == 'email' ) {
+						if( $key == 'email' ) {
 
 							$label = __( 'Your Email address or other contact URL', 'sfmsb_domain');	
 							
 							$instance['url_' . $key] = str_replace('mailto:', '', $instance['url_' . $key]);
-							
 							if( filter_var( $instance['url_' . $key], FILTER_VALIDATE_EMAIL ) ){
-									
-								$value = esc_attr( $instance['url_' . $key] );	
-							} else {
 							
+								$value = esc_attr( $instance['url_' . $key] );	
+							
+							} else {
+								
 								$value = esc_url( $instance['url_' . $key] );
-							} // if
+							
+							} // if valid email
 							
 							
 						} else {
-								
+							
 							$label = __( $item['name'] . ' URL', 'sfmsb_domain');
 							$value = esc_url( $instance['url_' . $key] );
 						}
-			?>
+					
+					?>						   
+					
+					<label class="description" for="<?php echo $this->get_field_id( 'url_' . $key ); ?>"><?php echo $label; ?></label>
+					
+					<input id="<?php echo $this->get_field_id( 'url_' . $key ) ?>"
+						   class="widefat"	 
+						   name="<?php echo $this->get_field_name( 'url_' . $key );  ?>" 
+				    	   type="text" 
+				    	   class=""
+						   value="<?php echo $value ?>"/>
+				</p>
 			
-					<a href="javascript:void(0);" <?php echo ( $value == '' ) ? 'class="sfmsb-disable"' : 'class="sfmsb-enable"'; ?>>
-						<span class="sfmsb-icon-<?php echo $key .' '. $instance['style'] ?>" style="color: <?php echo $color ?>"></span>
-					</a>
-					
-					<div class="sfmsb-input-block sfmsb-<?php echo $key ?>">
-						
-						<label for="<?php echo $this->get_field_id( 'url_' . $key ); ?>"><?php echo $label; ?></label>
-					
-						<input id="<?php echo $this->get_field_id( 'url_' . $key ) ?>"
-							   class="widefat"	 
-							   name="<?php echo $this->get_field_name( 'url_' . $key );  ?>" 
-					    	   type="text" 
-					    	   class=""
-							   value="<?php echo $value ?>"/>
-					</div>
+			<? } // foreach available buttons ?>
 			
-			<?php } // foreach ?>
-				<div class="clearfix"></div>
-				
-				<div class="sfmsb-initial-message">
-						<?php _e('Click on any icon to input the url and enable it. Leave the input blank to disable the icon.', 'sfmsb_domain');?>
-				</div>
-					
-			</div>
 			
 			<!-- *** STYLE select ***-->
 				<p>
-					<label for="<?php echo $this->get_field_id( 'style' ); ?>"><b><?php _e('Style', 'sfmsb_domain'); ?></b></label>	
+					<label class="description" for="<?php echo $this->get_field_id( 'style' ); ?>"><b><?php _e('Style', 'sfmsb_domain'); ?></b></label>	
 							<select id="<?php echo $this->get_field_id( 'style' ); ?>" name="<?php echo $this->get_field_name( 'style' ); ?>">
 								<option value="circle" <?php selected($instance[ 'style' ], 'circle') ?>><?php _e('Rounded', 'sfmsb_domain') ?></option>
 								<option value="square" <?php selected($instance[ 'style' ], 'square') ?>><?php _e('Squared', 'sfmsb_domain') ?></option>
 							</select>
 				</p>
-				 
+				
+				<script type='text/javascript'>
+		            jQuery(document).ready(function($) {
+		                $('.sfmsb-color-picker').wpColorPicker();
+		            });
+       			 </script>
+       			 
        			 <p>
-           			 <label for="<?php echo $this->get_field_id( 'color' ); ?>"><b><?php _e( 'Color', 'sfmsb_domain' ); ?></b></label>
+           			 <label class="description" for="<?php echo $this->get_field_id( 'color' ); ?>"><b><?php _e( 'Color', 'sfmsb_domain' ); ?></b></label>
             		 <input class="sfmsb-color-picker" type="text" id="<?php echo $this->get_field_id( 'color' ); ?>" name="<?php echo $this->get_field_name( 'color' ); ?>" value="<?php echo esc_attr( $instance['color'] ); ?>" />                            
         		</p>
 				
 				<!-- *** SIZES radios ***-->
 				<p>
-					<label for="<?php echo $this->get_field_id( 'size' ); ?>"><b><?php _e('Size', 'sfmsb_domain'); ?></b></label>&nbsp;&nbsp;&nbsp;
+					<label class="description" for="<?php echo $this->get_field_id( 'size' ); ?>"><b><?php _e('Size', 'sfmsb_domain'); ?></b></label>	
+							&nbsp;&nbsp;&nbsp;
 							
-					<input class="s"
-					   	   name="<?php echo $this->get_field_name( 'size' ); ?>" 
-					   	   type="text" 
-					   	   value="<?php echo esc_attr( $instance['size'] ); ?>" /> px
+						<input class="s"
+					   name="<?php echo $this->get_field_name( 'size' ); ?>" 
+					   type="text" 
+					   value="<?php echo esc_attr( $instance['size'] ); ?>" /> px
 							
 				</p>
 				
 				<!-- *** POSITIONS radios ***-->
 				<p>
-					<label for="<?php echo $this->get_field_id( 'position' ); ?>"><b><?php _e('Position', 'sfmsb_domain'); ?></b></label>	
-					<br/>
+					<label class="description" for="<?php echo $this->get_field_id( 'position' ); ?>"><b><?php _e('Position', 'sfmsb_domain'); ?></b></label>	
+							<br/>
 							
 								
-					<input id="<?php echo $this->get_field_id( 'position' ); ?>" 
-					       name="<?php echo $this->get_field_name( 'position' ); ?>" 
-						   type="radio" 
-						   value="under" <?php checked('under', $instance['position']) ?> />
+								<input id="<?php echo $this->get_field_id( 'position' ); ?>" 
+								   name="<?php echo $this->get_field_name( 'position' ); ?>" 
+								   type="radio" 
+								   value="under" <?php checked('under', $instance['position']) ?> />
 								   
-					<label><?php _e('Icons under text', 'sfmsb_domain'); ?></label>&nbsp;
-						
-						<input id="<?php echo $this->get_field_id( 'position' ); ?>" 
-							   name="<?php echo $this->get_field_name( 'position' ); ?>" 
-							   type="radio" 
-							   value="float" <?php checked('float', $instance['position']) ?> />
+								   <label class="description"><?php _e('Icons under text', 'sfmsb_domain'); ?></label>
+									&nbsp;
+								
+								<input id="<?php echo $this->get_field_id( 'position' ); ?>" 
+								   name="<?php echo $this->get_field_name( 'position' ); ?>" 
+								   type="radio" 
+								   value="float" <?php checked('float', $instance['position']) ?> />
 								   
-					<label><?php _e('Icons next to text', 'sfmsb_domain'); ?></label>
-						
+								   <label class="description"><?php _e('Icons next to text', 'sfmsb_domain'); ?></label>
+									&nbsp;
 				</p>
 				
-				<script>
-					
-					jQuery('#widgets-right').on('click','.icon_buttons input',function(){
-     					openPanel(jQuery(this),jQuery(this).index());
-					});
-				</script>
 			
 			<?
 		
@@ -225,19 +219,20 @@ class Sfmsb_Widget extends WP_Widget {
 			foreach( $this->available_buttons as $key => $item ){
 					
 				if( $key == 'email' ) {
-						
 					$new_instance['url_' . $key] = str_replace('mailto:', '', $new_instance['url_' . $key]);
 					
 					if( filter_var( $new_instance['url_' . $key], FILTER_VALIDATE_EMAIL ) ){
-						
+							
 						$value = esc_attr( $new_instance['url_' . $key] );
+							
 					} else {
-						
+								
 						$value = esc_url( $new_instance['url_' . $key] );
-					} // if
+							
+					} // if valid email	
+
 
 				} else {
-					
 					$value = esc_url( $new_instance['url_' . $key] );
 				}
 					
@@ -293,37 +288,34 @@ class Sfmsb_Widget extends WP_Widget {
 					break;	
 				}
 				
-				if ( !empty( $instance['text'] ) ) {
-					 echo '<span class="sfmsb-text" style="font-size:'. $text_size .'px;">' . $instance['text']  . '</span>'; 
-				}
+				if ( !empty( $instance['text'] ) ) { echo '<span class="sfmsb-text" style="font-size:'. $text_size .'px;">' . $instance['text']  . '</span>'; };
 					
 					// ** do_action
 					do_action('sfmsb_widget_before_links');
 					
 					foreach ( SFMSB::instance()->available_buttons as $key => $item ) {
 						
-						if( isset( $instance['url_' . $key] ) &&  
-							$instance['url_' . $key] != '' 
-						  ) {
+						if( isset( $instance['enable_' . $key] ) &&  $instance['enable_' . $key] == 1 ) {
 							
-							// color (default or custom)
-							( $instance['color'] == '') ? $color = '#' . $item['color'] : $color = $instance['color'];
+							if( $instance['color'] == '') {
+								$color = '#' . $item['color'];
+							}else{
+								$color = $instance['color'];
+							}
 							
-							//url (default or email)
-							if( $key == 'email' && 
-								filter_var( $instance['url_' . $key], FILTER_VALIDATE_EMAIL ) 
-							) {
+							if( $key == 'email' && filter_var( $instance['url_' . $key], FILTER_VALIDATE_EMAIL ) ) {
+
 								$href = 'mailto:' . esc_attr($instance['url_' . $key]);
+
 							} else {
+
 								$href = esc_url($instance['url_' . $key]);
 							}
 							
 							echo '<a target="_blank" href="' . $href . '">';
-								echo '<span class="sfmsb-icon-'. $key .' '. $instance['style'] .'" style="color:' . $color . ';font-size:'. $instance['size'] .'px;"></span>';
+							echo '<span class="sfmsb-icon-'. $key .'-'. $instance['style'] .'" style="color:' . $color . ';font-size:'. $instance['size'] .'px"></span>';
 							echo '</a>';
-						
-						}// if enabled	
-						
+						}	
 					} // foreach
 					
 					// ** do_action
@@ -354,32 +346,16 @@ class Sfmsb_Widget extends WP_Widget {
 	 */
 	public static function add_style() {
 		wp_enqueue_style('sfmsb-style', SFMSB_PLUGIN_URL . 'assets/css/style.css', array(), SFMSB_PLUGIN_VERSION);
-		wp_enqueue_style('sfmsb-icons', SFMSB_PLUGIN_URL . 'assets/css/icons.css', array(), SFMSB_PLUGIN_VERSION);
 	}
 	
 	/**
-	 * add_admin_scripts
+	 * add_admin_style
 	 * @since 1.0.0
 	 */
 	public static function add_admin_scripts() {
-		 	
+		 wp_enqueue_style('sfmsb-admin-style', SFMSB_PLUGIN_URL . 'assets/css/admin.css', array(), SFMSB_PLUGIN_VERSION);
 		 wp_enqueue_style( 'wp-color-picker' );        
-         wp_enqueue_style('sfmsb-admin-style', SFMSB_PLUGIN_URL . 'assets/css/admin.css', array(), SFMSB_PLUGIN_VERSION);
-		 wp_enqueue_style('sfmsb-icons', SFMSB_PLUGIN_URL . 'assets/css/icons.css', array(), SFMSB_PLUGIN_VERSION);
-		 
-		/* wp_enqueue_script( 'wp-color-picker' );
-		 wp_register_script( 'sfmsb-admin-widget-script', SFMSB_PLUGIN_URL . 'assets/js/widget.js', array('jquery'), SFMSB_PLUGIN_VERSION );
-		 
-		 add_action( "admin_print_scripts-widgets.php", array('Sfmsb_Widget', 'admin_widget_scripts') );*/
-	}
-	
-	/**
-	 * admin_widget_scripts
-	 * @since 2.0
-	 */
-	
-	public static function admin_widget_scripts(){
-		wp_enqueue_script('sfmsb-admin-widget-script');
+         wp_enqueue_script( 'wp-color-picker' );  
 	}
 	
 	
