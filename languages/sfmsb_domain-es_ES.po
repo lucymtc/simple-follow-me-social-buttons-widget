@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Simple Follow Me Social Buttons Widget\n"
-"POT-Creation-Date: 2014-08-13 12:44+0100\n"
-"PO-Revision-Date: 2014-08-13 12:44+0100\n"
+"POT-Creation-Date: 2014-08-25 16:28+0100\n"
+"PO-Revision-Date: 2014-08-25 16:30+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -18,65 +18,73 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: includes/widget.php:25
+#: includes/_widget.php:25 includes/widget.php:25
 msgid "Social"
 msgstr "Social"
 
-#: includes/widget.php:28
+#: includes/_widget.php:28 includes/widget.php:28
 msgid "Follow me on:"
 msgstr "Sígueme en:"
 
-#: includes/widget.php:52
+#: includes/_widget.php:52 includes/widget.php:49
 msgid "Simple follow me social buttons"
 msgstr "Simple follow me social buttons"
 
-#: includes/widget.php:73
+#: includes/_widget.php:73 includes/widget.php:74
 msgid "Title"
 msgstr "Título"
 
-#: includes/widget.php:84
+#: includes/_widget.php:84 includes/widget.php:85
 msgid "Text"
 msgstr "Texto"
 
-#: includes/widget.php:108
+#: includes/_widget.php:108 includes/widget.php:106
 msgid "Your Email address or other contact URL"
 msgstr "Tu dirección email u otra URL de contacto"
 
-#: includes/widget.php:124
+#: includes/_widget.php:124 includes/widget.php:121
 msgid " URL"
 msgstr "URL"
 
-#: includes/widget.php:145
+#: includes/_widget.php:145 includes/widget.php:153
 msgid "Style"
 msgstr "Estilo"
 
-#: includes/widget.php:147
+#: includes/_widget.php:147 includes/widget.php:155
 msgid "Rounded"
 msgstr "Redondo"
 
-#: includes/widget.php:148
+#: includes/_widget.php:148 includes/widget.php:156
 msgid "Squared"
 msgstr "Cuadrado"
 
-#: includes/widget.php:159
+#: includes/_widget.php:159 includes/widget.php:161
 msgid "Color"
 msgstr "Color"
 
-#: includes/widget.php:165
+#: includes/_widget.php:165 includes/widget.php:167
 msgid "Size"
 msgstr "Tamaño"
 
-#: includes/widget.php:177
+#: includes/_widget.php:177 includes/widget.php:178
 msgid "Position"
 msgstr "Posición"
 
-#: includes/widget.php:186
+#: includes/_widget.php:186 includes/widget.php:187
 msgid "Icons under text"
 msgstr "Iconos bajo texto"
 
-#: includes/widget.php:194
+#: includes/_widget.php:194 includes/widget.php:194
 msgid "Icons next to text"
 msgstr "Iconos junto texto"
+
+#: includes/widget.php:146
+msgid ""
+"Click on any icon to input the url and enable it. Leave the input blank to "
+"disable the icon."
+msgstr ""
+"Pincha en un icono para introducir su enlace y activarlo. Deja el campo de "
+"texto en blanco para desactivarlo."
 
 #~ msgid "Your "
 #~ msgstr "Tu "

@@ -2,7 +2,7 @@
 /**
 Plugin Name: Simple Follow Me Social Buttons Widget
 Description: Widget to add some of the most popular follow me social buttons. Retina ready.
-Version: 	 1.4
+Version: 	 2.0
 Author: 	 Lucy Tomás
 Author URI:  https://wordpress.org/support/profile/lucymtc
 License: 	 GPLv2
@@ -107,7 +107,7 @@ final class SFMSB {
 		  	if( !defined('SFMSB_PLUGIN_DIR') )  { define('SFMSB_PLUGIN_DIR', plugin_dir_path( __FILE__ )); }
 			if( !defined('SFMSB_PLUGIN_URL') )  { define('SFMSB_PLUGIN_URL', plugin_dir_url( __FILE__ ));  }
 			if( !defined('SFMSB_PLUGIN_FILE') ) { define('SFMSB_PLUGIN_FILE',  __FILE__ );  }
-			if( !defined('SFMSB_PLUGIN_VERSION') )  { define('SFMSB_PLUGIN_VERSION', '1.4');  } 
+			if( !defined('SFMSB_PLUGIN_VERSION') )  { define('SFMSB_PLUGIN_VERSION', '2.0');  } 
 			
 		  }
 		  
@@ -127,11 +127,11 @@ final class SFMSB {
 																	'color' => 'd68778'),  
 											 'feed'        => array('name' => 'Rss Feed',
 																	'color' => 'e1b96a'), 
-											 'linkedin'     => array('name' => 'Linkedin',
+											 'linkedin'    => array('name' => 'Linkedin',
 																	'color' => '6c97bf'), 
-											 'pinterest'    => array('name' => 'Pinterest',
+											 'pinterest'   => array('name' => 'Pinterest',
 																	'color' => 'd68678'), 
-											 'wordpress'    => array('name' => 'WordPress',
+											 'wordpress'   => array('name' => 'WordPress',
 																	'color' => '6b96be'), 
 											 'github'	   => array('name' => 'Github',
 																	'color' => '717272'),
@@ -139,12 +139,14 @@ final class SFMSB {
 																	'color' => 'b9a38c'),
 											 'youtube'     => array('name' => 'Youtube',
 																	'color' => 'd68778'),
-											 'vimeo'     => array('name' => 'Vimeo',
+											 'vimeo'       => array('name' => 'Vimeo',
 																	'color' => '4b6079'),
-											 'email'     => array('name' => 'Email',
+											 'email'       => array('name' => 'Email',
 																	'color' => '84b3dc'),
-											 'soundcloud'     => array('name' => 'SoundCloud',
-																	'color' => 'f6a46a')																																																															
+											 'soundcloud'  => array('name' => 'SoundCloud',
+																	'color' => 'f6a46a'),
+											 'itunes'      => array('name' => 'iTunes',
+																	'color' => 'cf95f5')																																																															
 											 );
 			
 		  }
