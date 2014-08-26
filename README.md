@@ -3,6 +3,7 @@ Simple Follow Me Social Buttons Widget for WordPress
 Requires at least: 3.8
 Tested up to: 4.0
 Stable tag: 1.5
+Donate link: http://wptips.me/simple-follow-social-buttons-widget/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,7 +33,10 @@ Availbale Icons:
 	* SoundCloud
 	* iTunes
 
-Icons from www.flaticon.com
+Missing any icons? Please feel free to request the icon you need.
+
+And if you are happy with the plugin and want to thank me you can find a donation button on this page. Thanks!!
+http://wptips.me/simple-follow-social-buttons-widget/
 
 == Installation ==
 
