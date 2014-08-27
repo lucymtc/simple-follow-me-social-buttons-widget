@@ -40,7 +40,7 @@ class Sfmsb_Widget extends WP_Widget {
 		
 			$widget_ops = array(
 				'classname' => 'sfmsb_widget',
-				'description' => 'Display follow me social buttons'
+				'description' => __('Adds "follow me" social buttons', 'sfmsb_domain')
 			);
 			
 			$this->available_buttons = SFMSB::instance()->available_buttons;
@@ -91,8 +91,16 @@ class Sfmsb_Widget extends WP_Widget {
 			</p>
 			
 			<!-- *** ENABLE checkbox & URL text ***-->
-			
-			<div class="sfmsb-icons-container">
+			<?php 
+				
+				//** patch to add a black bg to buttons if color of icons is white
+				$class = '';
+				if( $instance['color'] == '#ffffff' || $instance['color'] == '#fff' || $instance['color'] == 'white' ) {
+					$class = " dark";
+				}
+				
+			?>
+			<div class="sfmsb-icons-container<?php echo $class ?>">
 			
 			<?php
 			

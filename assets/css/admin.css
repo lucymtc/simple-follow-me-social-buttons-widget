@@ -26,6 +26,10 @@ div.widget[id*=_sfmsb] input.s{
 	width:100px;
 }
 
+div.sfmsb-icons-container.dark a{
+	background-color: #000000;
+}
+
 div.sfmsb-icons-container a{
 	text-decoration:none;
 	margin:0px 8px 10px 8px;
