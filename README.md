@@ -2,7 +2,7 @@ Simple Follow Me Social Buttons Widget for WordPress
 ========================================
 Requires at least: 3.8
 Tested up to: 4.0
-Stable tag: 1.6
+Stable tag: 1.7
 Donate link: http://wptips.me/simple-follow-social-buttons-widget/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -46,6 +46,9 @@ http://wptips.me/simple-follow-social-buttons-widget/
 4. Go to Appearance -> Widgets and look for the widget Simple follow me social buttons
 
 == Changelog ==
+
+= 1.7 =
+* Fixed js call to wp-color-picker.
 
 = 1.6 =
 * Fixed icons visibility in form when white icons.
