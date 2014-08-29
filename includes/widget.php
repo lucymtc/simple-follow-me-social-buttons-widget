@@ -48,9 +48,9 @@ class Sfmsb_Widget extends WP_Widget {
 			
 			parent::__construct( 'sfmsb_settings', __( 'Simple follow me social buttons', 'sfmsb_domain' ), $widget_ops );
 			 
-			wp_enqueue_script( 'wp-color-picker' );
-		 	wp_register_script( 'sfmsb-admin-widget-script', SFMSB_PLUGIN_URL . 'assets/js/widget.js', array('jquery'), SFMSB_PLUGIN_VERSION );
-		 	 
+			 
+			//** this is not in add_admin_scripts because it would break after widget save, need to be in the construct.
+			wp_register_script( 'sfmsb-admin-widget-script', SFMSB_PLUGIN_URL . 'assets/js/widget.js', array('jquery', 'wp-color-picker'), SFMSB_PLUGIN_VERSION );
 		 	add_action( "admin_print_scripts-widgets.php", array('Sfmsb_Widget', 'admin_widget_scripts') );
 	}
 	
@@ -375,10 +375,8 @@ class Sfmsb_Widget extends WP_Widget {
          wp_enqueue_style('sfmsb-admin-style', SFMSB_PLUGIN_URL . 'assets/css/admin.css', array(), SFMSB_PLUGIN_VERSION);
 		 wp_enqueue_style('sfmsb-icons', SFMSB_PLUGIN_URL . 'assets/css/icons.css', array(), SFMSB_PLUGIN_VERSION);
 		 
-		/* wp_enqueue_script( 'wp-color-picker' );
-		 wp_register_script( 'sfmsb-admin-widget-script', SFMSB_PLUGIN_URL . 'assets/js/widget.js', array('jquery'), SFMSB_PLUGIN_VERSION );
-		 
-		 add_action( "admin_print_scripts-widgets.php", array('Sfmsb_Widget', 'admin_widget_scripts') );*/
+		 wp_enqueue_script( 'wp-color-picker' );
+		
 	}
 	
 	/**
