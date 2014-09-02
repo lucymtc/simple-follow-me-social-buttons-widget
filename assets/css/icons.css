@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'social_buttons';
-	src:url('../fonts/social_buttons.eot?6rn0ly2');
-	src:url('../fonts/social_buttons.eot?#iefix6rn0ly2') format('embedded-opentype'),
-		url('../fonts/social_buttons.woff?6rn0ly2') format('woff'),
-		url('../fonts/social_buttons.ttf?6rn0ly2') format('truetype'),
-		url('../fonts/social_buttons.svg?6rn0ly2#social_buttons') format('svg');
+	src:url('../fonts/social_buttons.eot?6rn0ly3');
+	src:url('../fonts/social_buttons.eot?#iefix6rn0ly3') format('embedded-opentype'),
+		url('../fonts/social_buttons.woff?6rn0ly3') format('woff'),
+		url('../fonts/social_buttons.ttf?6rn0ly3') format('truetype'),
+		url('../fonts/social_buttons.svg?6rn0ly3#social_buttons') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -123,4 +123,11 @@
 }
 .sfmsb-icon-itunes.circle:before {
 	content: "\e600";
+}
+
+.sfmsb-icon-bloglovin.square:before {
+	content: "\e618";
+}
+.sfmsb-icon-bloglovin.circle:before {
+	content: "\e61f";
 }
