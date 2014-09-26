@@ -2,7 +2,7 @@
 /**
 Plugin Name: Simple Follow Me Social Buttons Widget
 Description: Widget to add some of the most popular follow me social buttons. Retina ready.
-Version: 	 1.9
+Version: 	 2.0
 Author: 	 Lucy Tomás
 Author URI:  https://wordpress.org/support/profile/lucymtc
 License: 	 GPLv2
@@ -76,8 +76,11 @@ final class SFMSB {
 			add_action( 'widgets_init', array('Sfmsb_Widget', 'register_widgets') );
 			
 			if( is_admin() ) {
+
 				add_action( 'admin_enqueue_scripts', array('Sfmsb_Widget', 'add_admin_scripts') );
+
 			} else{
+				
 				add_action( 'wp_enqueue_scripts', array('Sfmsb_Widget', 'add_style') );
 			}
 			
@@ -104,10 +107,10 @@ final class SFMSB {
 		  
 		  private function constants() {
 		  	
-		  	if( !defined('SFMSB_PLUGIN_DIR') )  { define('SFMSB_PLUGIN_DIR', plugin_dir_path( __FILE__ )); }
-			if( !defined('SFMSB_PLUGIN_URL') )  { define('SFMSB_PLUGIN_URL', plugin_dir_url( __FILE__ ));  }
-			if( !defined('SFMSB_PLUGIN_FILE') ) { define('SFMSB_PLUGIN_FILE',  __FILE__ );  }
-			if( !defined('SFMSB_PLUGIN_VERSION') )  { define('SFMSB_PLUGIN_VERSION', '1.9');  } 
+		  	if( !defined('SFMSB_PLUGIN_DIR') )  	{ define('SFMSB_PLUGIN_DIR', plugin_dir_path( __FILE__ )); }
+			if( !defined('SFMSB_PLUGIN_URL') )  	{ define('SFMSB_PLUGIN_URL', plugin_dir_url( __FILE__ ));  }
+			if( !defined('SFMSB_PLUGIN_FILE') ) 	{ define('SFMSB_PLUGIN_FILE',  __FILE__ );  }
+			if( !defined('SFMSB_PLUGIN_VERSION') )  { define('SFMSB_PLUGIN_VERSION', '2.0');  } 
 			
 		  }
 		  
@@ -119,38 +122,25 @@ final class SFMSB {
 		  private function variables(){
 		  	
 			
-			$this->available_buttons = array('twitter'     => array('name' => 'Twitter',
-																	'color' => '84b3dc'), 
-											 'facebook'    => array('name' => 'Facebook',
-																	'color' => '6c97bf'), 
-											 'googleplus'  => array('name' => 'Google+',
-																	'color' => 'd68778'),  
-											 'feed'        => array('name' => 'Rss Feed',
-																	'color' => 'e1b96a'), 
-											 'linkedin'    => array('name' => 'Linkedin',
-																	'color' => '6c97bf'), 
-											 'pinterest'   => array('name' => 'Pinterest',
-																	'color' => 'd68678'), 
-											 'wordpress'   => array('name' => 'WordPress',
-																	'color' => '6b96be'), 
-											 'github'	   => array('name' => 'Github',
-																	'color' => '717272'),
-											 'instagram'   => array('name' => 'Instagram',
-																	'color' => 'b9a38c'),
-											 'youtube'     => array('name' => 'Youtube',
-																	'color' => 'd68778'),
-											 'vimeo'       => array('name' => 'Vimeo',
-																	'color' => '4b6079'),
-											 'email'       => array('name' => 'Email',
-																	'color' => '84b3dc'),
-											 'soundcloud'  => array('name' => 'SoundCloud',
-																	'color' => 'f6a46a'),
-											 'itunes'      => array('name' => 'iTunes',
-																	'color' => 'cf95f5'),
-											 'bloglovin'   => array('name' => 'Bloglovin',
-																	'color' => '5ed3f5'),
-											 'flickr'   	   => array('name' => 'Flickr',
-																	'color' => 'f66db4')																																																															
+			$this->available_buttons = array('twitter'     => array( 'name' => 'Twitter',    'color' => '84b3dc' ), 
+											 'facebook'    => array( 'name' => 'Facebook',   'color' => '6c97bf' ), 
+											 'googleplus'  => array( 'name' => 'Google+',    'color' => 'd68778' ),  
+											 'feed'        => array( 'name' => 'Rss Feed',   'color' => 'e1b96a' ), 
+											 'linkedin'    => array( 'name' => 'Linkedin',   'color' => '6c97bf' ), 
+											 'pinterest'   => array( 'name' => 'Pinterest',  'color' => 'd68678' ), 
+											 'wordpress'   => array( 'name' => 'WordPress',  'color' => '6b96be' ), 
+											 'github'	   => array( 'name' => 'Github',     'color' => '717272' ),
+											 'instagram'   => array( 'name' => 'Instagram',  'color' => 'b9a38c' ),
+											 'youtube'     => array( 'name' => 'Youtube',    'color' => 'd68778' ),
+											 'vimeo'       => array( 'name' => 'Vimeo',      'color' => '4b6079' ),
+											 'email'       => array( 'name' => 'Email',      'color' => '84b3dc' ),
+											 'soundcloud'  => array( 'name' => 'SoundCloud', 'color' => 'f6a46a' ),
+											 'itunes'      => array( 'name' => 'iTunes', 	 'color' => 'cf95f5' ),
+											 'bloglovin'   => array( 'name' => 'Bloglovin',  'color' => '5ed3f5' ),
+											 'flickr'      => array( 'name' => 'Flickr', 	 'color' => 'f66db4' ),
+											 'tumblr'      => array( 'name' => 'Tumblr', 	 'color' => '436381' ),
+											 'hubpages'    => array( 'name' => 'HubPages', 	 'color' => '717272' ),
+											 'deviantart'  => array( 'name' => 'Deviantart', 'color' => 'c0ca65' ),																																																															
 											 );
 			
 		  }
