@@ -39,8 +39,8 @@ class Sfmsb_Widget extends WP_Widget {
 			
 		
 			$widget_ops = array(
-				'classname' => 'sfmsb_widget',
-				'description' => __('Adds "follow me" social buttons', 'sfmsb_domain')
+				'classname'   => 'sfmsb_widget',
+				'description' => __( 'Adds "follow me" social buttons', 'sfmsb_domain' )
 			);
 			
 			$this->available_buttons = SFMSB::instance()->available_buttons;
@@ -51,7 +51,7 @@ class Sfmsb_Widget extends WP_Widget {
 			 
 			//** this is not in add_admin_scripts because it would break after widget save, need to be in the construct.
 			wp_register_script( 'sfmsb-admin-widget-script', SFMSB_PLUGIN_URL . 'assets/js/widget.js', array('jquery', 'wp-color-picker'), SFMSB_PLUGIN_VERSION );
-		 	add_action( "admin_print_scripts-widgets.php", array('Sfmsb_Widget', 'admin_widget_scripts') );
+		 	add_action( 'admin_print_scripts-widgets.php', array('Sfmsb_Widget', 'admin_widget_scripts') );
 	}
 	
 	/**
@@ -95,7 +95,11 @@ class Sfmsb_Widget extends WP_Widget {
 				
 				//** patch to add a black bg to buttons if color of icons is white
 				$class = '';
-				if( $instance['color'] == '#ffffff' || $instance['color'] == '#fff' || $instance['color'] == 'white' ) {
+
+				if( $instance['color'] == '#ffffff' || 
+					$instance['color'] == '#fff' || 
+					$instance['color'] == 'white' ) {
+					
 					$class = " dark";
 				}
 				
@@ -352,6 +356,7 @@ class Sfmsb_Widget extends WP_Widget {
 	 * @since 1.0.0
 	 */
 	public static function register_widgets() {
+
 		register_widget( 'Sfmsb_Widget' );
 	}
 	
@@ -361,8 +366,10 @@ class Sfmsb_Widget extends WP_Widget {
 	 * @since 1.0.0
 	 */
 	public static function add_style() {
+
 		wp_enqueue_style('sfmsb-style', SFMSB_PLUGIN_URL . 'assets/css/style.css', array(), SFMSB_PLUGIN_VERSION);
 		wp_enqueue_style('sfmsb-icons', SFMSB_PLUGIN_URL . 'assets/css/icons.css', array(), SFMSB_PLUGIN_VERSION);
+
 	}
 	
 	/**
@@ -372,10 +379,10 @@ class Sfmsb_Widget extends WP_Widget {
 	public static function add_admin_scripts() {
 		 	
 		 wp_enqueue_style( 'wp-color-picker' );        
-         wp_enqueue_style('sfmsb-admin-style', SFMSB_PLUGIN_URL . 'assets/css/admin.css', array(), SFMSB_PLUGIN_VERSION);
+	     wp_enqueue_style('sfmsb-admin-style', SFMSB_PLUGIN_URL . 'assets/css/admin.css', array(), SFMSB_PLUGIN_VERSION);
 		 wp_enqueue_style('sfmsb-icons', SFMSB_PLUGIN_URL . 'assets/css/icons.css', array(), SFMSB_PLUGIN_VERSION);
-		 
-		 wp_enqueue_script( 'wp-color-picker' );
+			 
+		  wp_enqueue_script( 'wp-color-picker' );
 		
 	}
 	
@@ -385,6 +392,7 @@ class Sfmsb_Widget extends WP_Widget {
 	 */
 	
 	public static function admin_widget_scripts(){
+
 		wp_enqueue_script('sfmsb-admin-widget-script');
 	}
 	
