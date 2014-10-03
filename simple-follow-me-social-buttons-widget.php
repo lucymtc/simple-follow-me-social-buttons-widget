@@ -2,7 +2,7 @@
 /**
 Plugin Name: Simple Follow Me Social Buttons Widget
 Description: Widget to add some of the most popular follow me social buttons. Retina ready.
-Version: 	 2.0
+Version: 	 2.1
 Author: 	 Lucy Tomás
 Author URI:  https://wordpress.org/support/profile/lucymtc
 License: 	 GPLv2
@@ -110,7 +110,7 @@ final class SFMSB {
 		  	if( !defined('SFMSB_PLUGIN_DIR') )  	{ define('SFMSB_PLUGIN_DIR', plugin_dir_path( __FILE__ )); }
 			if( !defined('SFMSB_PLUGIN_URL') )  	{ define('SFMSB_PLUGIN_URL', plugin_dir_url( __FILE__ ));  }
 			if( !defined('SFMSB_PLUGIN_FILE') ) 	{ define('SFMSB_PLUGIN_FILE',  __FILE__ );  }
-			if( !defined('SFMSB_PLUGIN_VERSION') )  { define('SFMSB_PLUGIN_VERSION', '2.0');  } 
+			if( !defined('SFMSB_PLUGIN_VERSION') )  { define('SFMSB_PLUGIN_VERSION', '2.1');  } 
 			
 		  }
 		  
@@ -140,7 +140,12 @@ final class SFMSB {
 											 'flickr'      => array( 'name' => 'Flickr', 	 'color' => 'f66db4' ),
 											 'tumblr'      => array( 'name' => 'Tumblr', 	 'color' => '436381' ),
 											 'hubpages'    => array( 'name' => 'HubPages', 	 'color' => '717272' ),
-											 'deviantart'  => array( 'name' => 'Deviantart', 'color' => 'c0ca65' ),																																																															
+											 'deviantart'  => array( 'name' => 'Deviantart', 'color' => 'c0ca65' ),
+											 'feedly'  	   => array( 'name' => 'Feedly', 	 'color' => '6bc581' ),
+											 'slideshare'  => array( 'name' => 'SlideShare', 'color' => 'e7a463' ),
+											 'vine'        => array( 'name' => 'Vine', 		 'color' => '6bc3ad' ),
+											 'goodreads'   => array( 'name' => 'GoodReads',  'color' => '8d7469' ),
+											 'vk'          => array( 'name' => 'VK', 		 'color' => '6c97bf' )																																																															
 											 );
 			
 		  }
@@ -162,3 +167,4 @@ final class SFMSB {
 
 
 SFMSB::instance();
+?>
