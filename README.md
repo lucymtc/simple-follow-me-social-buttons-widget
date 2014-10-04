@@ -2,7 +2,7 @@ Simple Follow Me Social Buttons Widget for WordPress
 ========================================
 Requires at least: 3.8
 Tested up to: 4.0
-Stable tag: 2.0
+Stable tag: 2.1
 Donate link: http://wptips.me/simple-follow-social-buttons-widget/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -37,6 +37,11 @@ Availbale Icons:
 	* Tumblr
 	* Hubpages
 	* Deviantart
+	* Feedly
+	* Slideshare
+	* Vine
+	* GoodReads
+	* VK
 
 Missing any icons? Please feel free to request the icon you need.
 
@@ -51,6 +56,10 @@ http://wptips.me/simple-follow-social-buttons-widget/
 4. Go to Appearance -> Widgets and look for the widget Simple follow me social buttons
 
 == Changelog ==
+
+= 2.1 =
+* Added Feedly, Vine, Slideshare, GoodReads and VK icons.
+* Added php close tags to fix error on some servers.
 
 = 2.0 =
 * Added Tumblr, Hubpages, Deviantart icons.
