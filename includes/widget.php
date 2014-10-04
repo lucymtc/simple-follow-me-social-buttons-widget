@@ -399,4 +399,3 @@ class Sfmsb_Widget extends WP_Widget {
 	
 }// class
 }// if
-?>
