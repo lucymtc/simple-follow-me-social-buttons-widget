@@ -2,7 +2,7 @@
 /**
 Plugin Name: Simple Follow Me Social Buttons Widget
 Description: Widget to add some of the most popular follow me social buttons. Retina ready.
-Version: 	 2.1
+Version: 	 2.2
 Author: 	 Lucy Tomás
 Author URI:  https://wordpress.org/support/profile/lucymtc
 License: 	 GPLv2
@@ -110,7 +110,7 @@ final class SFMSB {
 		  	if( !defined('SFMSB_PLUGIN_DIR') )  	{ define('SFMSB_PLUGIN_DIR', plugin_dir_path( __FILE__ )); }
 			if( !defined('SFMSB_PLUGIN_URL') )  	{ define('SFMSB_PLUGIN_URL', plugin_dir_url( __FILE__ ));  }
 			if( !defined('SFMSB_PLUGIN_FILE') ) 	{ define('SFMSB_PLUGIN_FILE',  __FILE__ );  }
-			if( !defined('SFMSB_PLUGIN_VERSION') )  { define('SFMSB_PLUGIN_VERSION', '2.1');  } 
+			if( !defined('SFMSB_PLUGIN_VERSION') )  { define('SFMSB_PLUGIN_VERSION', '2.2');  } 
 			
 		  }
 		  
@@ -122,30 +122,32 @@ final class SFMSB {
 		  private function variables(){
 		  	
 			
-			$this->available_buttons = array('twitter'     => array( 'name' => 'Twitter',    'color' => '84b3dc' ), 
-											 'facebook'    => array( 'name' => 'Facebook',   'color' => '6c97bf' ), 
-											 'googleplus'  => array( 'name' => 'Google+',    'color' => 'd68778' ),  
-											 'feed'        => array( 'name' => 'Rss Feed',   'color' => 'e1b96a' ), 
-											 'linkedin'    => array( 'name' => 'Linkedin',   'color' => '6c97bf' ), 
-											 'pinterest'   => array( 'name' => 'Pinterest',  'color' => 'd68678' ), 
-											 'wordpress'   => array( 'name' => 'WordPress',  'color' => '6b96be' ), 
-											 'github'	   => array( 'name' => 'Github',     'color' => '717272' ),
-											 'instagram'   => array( 'name' => 'Instagram',  'color' => 'b9a38c' ),
-											 'youtube'     => array( 'name' => 'Youtube',    'color' => 'd68778' ),
-											 'vimeo'       => array( 'name' => 'Vimeo',      'color' => '4b6079' ),
-											 'email'       => array( 'name' => 'Email',      'color' => '84b3dc' ),
-											 'soundcloud'  => array( 'name' => 'SoundCloud', 'color' => 'f6a46a' ),
-											 'itunes'      => array( 'name' => 'iTunes', 	 'color' => 'cf95f5' ),
-											 'bloglovin'   => array( 'name' => 'Bloglovin',  'color' => '5ed3f5' ),
-											 'flickr'      => array( 'name' => 'Flickr', 	 'color' => 'f66db4' ),
-											 'tumblr'      => array( 'name' => 'Tumblr', 	 'color' => '436381' ),
-											 'hubpages'    => array( 'name' => 'HubPages', 	 'color' => '717272' ),
-											 'deviantart'  => array( 'name' => 'Deviantart', 'color' => 'c0ca65' ),
-											 'feedly'  	   => array( 'name' => 'Feedly', 	 'color' => '6bc581' ),
-											 'slideshare'  => array( 'name' => 'SlideShare', 'color' => 'e7a463' ),
-											 'vine'        => array( 'name' => 'Vine', 		 'color' => '6bc3ad' ),
-											 'goodreads'   => array( 'name' => 'GoodReads',  'color' => '8d7469' ),
-											 'vk'          => array( 'name' => 'VK', 		 'color' => '6c97bf' )																																																															
+			$this->available_buttons = array('twitter'      => array( 'name' => 'Twitter',    	'color' => '84b3dc' ), 
+											 'facebook'     => array( 'name' => 'Facebook',   	'color' => '6c97bf' ), 
+											 'googleplus'   => array( 'name' => 'Google+',    	'color' => 'd68778' ),  
+											 'feed'         => array( 'name' => 'Rss Feed',   	'color' => 'e1b96a' ), 
+											 'linkedin'     => array( 'name' => 'Linkedin',   	'color' => '6c97bf' ), 
+											 'pinterest'    => array( 'name' => 'Pinterest',  	'color' => 'd68678' ), 
+											 'wordpress'    => array( 'name' => 'WordPress',  	'color' => '6b96be' ), 
+											 'github'	    => array( 'name' => 'Github',     	'color' => '717272' ),
+											 'instagram'    => array( 'name' => 'Instagram',  	'color' => 'b9a38c' ),
+											 'youtube'      => array( 'name' => 'Youtube',    	'color' => 'd68778' ),
+											 'vimeo'        => array( 'name' => 'Vimeo',      	'color' => '4b6079' ),
+											 'email'        => array( 'name' => 'Email',      	'color' => '84b3dc' ),
+											 'soundcloud'   => array( 'name' => 'SoundCloud', 	'color' => 'f6a46a' ),
+											 'itunes'       => array( 'name' => 'iTunes', 	 	'color' => 'cf95f5' ),
+											 'bloglovin'    => array( 'name' => 'Bloglovin',  	'color' => '5ed3f5' ),
+											 'flickr'       => array( 'name' => 'Flickr', 	 	'color' => 'f66db4' ),
+											 'tumblr'       => array( 'name' => 'Tumblr', 	 	'color' => '436381' ),
+											 'hubpages'     => array( 'name' => 'HubPages', 	'color' => '717272' ),
+											 'deviantart'   => array( 'name' => 'Deviantart', 	'color' => 'c0ca65' ),
+											 'feedly'  	    => array( 'name' => 'Feedly', 	 	'color' => '6bc581' ),
+											 'slideshare'   => array( 'name' => 'SlideShare', 	'color' => 'e7a463' ),
+											 'vine'         => array( 'name' => 'Vine', 		'color' => '6bc3ad' ),
+											 'goodreads'    => array( 'name' => 'GoodReads',  	'color' => '8d7469' ),
+											 'vk'           => array( 'name' => 'VK', 		 	'color' => '6c97bf' ),
+											 'sanscritique' => array( 'name' => 'SansCritique', 'color' => '9ed47b' ),
+											 'yelp'         => array( 'name' => 'Yelp', 		'color' => 'b33e3a' )
 											 );
 			
 		  }
@@ -167,4 +169,3 @@ final class SFMSB {
 
 
 SFMSB::instance();
-?>
