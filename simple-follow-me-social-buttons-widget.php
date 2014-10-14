@@ -2,7 +2,7 @@
 /**
 Plugin Name: Simple Follow Me Social Buttons Widget
 Description: Widget to add some of the most popular follow me social buttons. Retina ready.
-Version: 	 2.2
+Version: 	 2.3
 Author: 	 Lucy Tomás
 Author URI:  https://wordpress.org/support/profile/lucymtc
 License: 	 GPLv2
@@ -78,11 +78,15 @@ final class SFMSB {
 			if( is_admin() ) {
 
 				add_action( 'admin_enqueue_scripts', array('Sfmsb_Widget', 'add_admin_scripts') );
+				add_action( 'admin_notices', 		 array('SFMSB', 'specificfeeds_notice') );
 
 			} else{
 				
 				add_action( 'wp_enqueue_scripts', array('Sfmsb_Widget', 'add_style') );
 			}
+
+			add_action('wp_ajax_sfmsb_notice_viewed', array('SFMSB', 'specificfeeds_save_notice_viewed'));
+			add_action('wp_ajax_nopriv_sfmsb_notice_viewed', array('SFMSB', 'specificfeeds_save_notice_viewed'));
 			
 		 }
 		 
@@ -110,7 +114,7 @@ final class SFMSB {
 		  	if( !defined('SFMSB_PLUGIN_DIR') )  	{ define('SFMSB_PLUGIN_DIR', plugin_dir_path( __FILE__ )); }
 			if( !defined('SFMSB_PLUGIN_URL') )  	{ define('SFMSB_PLUGIN_URL', plugin_dir_url( __FILE__ ));  }
 			if( !defined('SFMSB_PLUGIN_FILE') ) 	{ define('SFMSB_PLUGIN_FILE',  __FILE__ );  }
-			if( !defined('SFMSB_PLUGIN_VERSION') )  { define('SFMSB_PLUGIN_VERSION', '2.2');  } 
+			if( !defined('SFMSB_PLUGIN_VERSION') )  { define('SFMSB_PLUGIN_VERSION', '2.3');  } 
 			
 		  }
 		  
@@ -122,7 +126,9 @@ final class SFMSB {
 		  private function variables(){
 		  	
 			
-			$this->available_buttons = array('twitter'      => array( 'name' => 'Twitter',    	'color' => '84b3dc' ), 
+			$this->available_buttons = array(
+											 'specificfeeds'=> array( 'name' => 'SpecificFeeds','color' => 'd68678' ),
+											 'twitter'      => array( 'name' => 'Twitter',    	'color' => '84b3dc' ), 
 											 'facebook'     => array( 'name' => 'Facebook',   	'color' => '6c97bf' ), 
 											 'googleplus'   => array( 'name' => 'Google+',    	'color' => 'd68778' ),  
 											 'feed'         => array( 'name' => 'Rss Feed',   	'color' => 'e1b96a' ), 
@@ -146,8 +152,12 @@ final class SFMSB {
 											 'vine'         => array( 'name' => 'Vine', 		'color' => '6bc3ad' ),
 											 'goodreads'    => array( 'name' => 'GoodReads',  	'color' => '8d7469' ),
 											 'vk'           => array( 'name' => 'VK', 		 	'color' => '6c97bf' ),
-											 'sanscritique' => array( 'name' => 'SansCritique', 'color' => '9ed47b' ),
-											 'yelp'         => array( 'name' => 'Yelp', 		'color' => 'b33e3a' )
+											 'sanscritique' => array( 'name' => 'SensCritique', 'color' => '9ed47b' ),
+											 'yelp'         => array( 'name' => 'Yelp', 		'color' => 'b33e3a' ),
+											 'lastfm'       => array( 'name' => 'Last.fm', 		'color' => 'd5565a' ),
+											 'trover'       => array( 'name' => 'Trover', 		'color' => 'b79344' ),
+											 'xing'       	=> array( 'name' => 'Xing.com', 	'color' => '498383' ),
+											 'behance'      => array( 'name' => 'Behance', 		'color' => '717272' )
 											 );
 			
 		  }
@@ -159,6 +169,57 @@ final class SFMSB {
 		public function load_textdomain() {
 			
 			load_plugin_textdomain('sfmsb_domain', false,  dirname( plugin_basename( SFMSB_PLUGIN_FILE ) ) . '/languages/' );	
+	 	}
+
+	 	/**
+	 	 * specificfeeds_notice
+	 	 * displays a notice to inform specificfeeds icon has been added 
+	 	 *
+	 	 * @since 2.3
+	 	 */
+
+	 	public static function specificfeeds_notice() {
+	 	
+	 	
+	 		$sreen  = get_current_screen();
+	 		$option = get_option('sfmsb_specificfeeds_viewed_notice');
+
+	 		if( empty($option ) && $sreen->base == 'widgets') {
+	 	?>
+			    <div class="updated sfmsb-specificfeeds-notice">
+			    	
+			        <p>
+			        	<span class="sfmsb-icon-specificfeeds square"></span>
+			        	<span class="sfmsb-icon-specificfeeds circle"></span>
+			        	<span><?php _e( '<strong>Simple Follow Me Social Buttons Widget</strong> has included <a href="http://www.specificfeeds.com"><strong>SpecificFeeds.com</strong></a> icon. You still don\'t know about SpecificFeeds? <a href="http://www.specificfeeds.com/rss">Learn more from here</a>, it\'s 100% FREE.', 'sfmsb_domain' ); ?></span>
+			        </p>
+
+			        <a href="javascript:void(0);" id="sfmsb-specificfeeds-close"><span class="sfmsb-icon-close"></span></a>
+			    </div>
+    	<?php	
+    		}// if ! option
+	 	}
+
+	 	/**
+	 	 * specificfeeds_save_notice_viewed
+	 	 * saves option to indicate that the notice has been closed to not show again
+		 *	
+	 	 * @since 2.3
+	 	 */
+
+	 	public static function specificfeeds_save_notice_viewed(){
+	 		
+			
+	 		if( isset($_POST['specificfeeds_viewed_notice']) && 
+	 			isset($_POST['specificfeeds_viewed_notice']) == 1 && 
+	 			is_user_logged_in()) {
+
+	 			update_option('sfmsb_specificfeeds_viewed_notice', 1);
+	 			echo 'success';
+
+	 		} 
+
+	 		die();
 	 	}
 		
 		

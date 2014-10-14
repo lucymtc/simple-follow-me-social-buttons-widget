@@ -33,8 +33,18 @@ class Sfmsb_Widget extends WP_Widget {
 			
 			foreach ( SFMSB::instance()->available_buttons as $key => $item ) {
 					
-				$this->defaults['enable_' . $key] = 0;
-				$this->defaults['url_' . $key] 	  = '';
+				
+
+				if( $key == 'specificfeeds') {
+					
+					$this->defaults['enable_' . $key] = 1;
+					$this->defaults['url_' . $key] 	  = 'http://www.specificfeeds.com/follow';	
+					
+				} else {
+
+					$this->defaults['enable_' . $key] = 0;
+					$this->defaults['url_' . $key] 	  = '';	
+				}
 			}
 			
 		
@@ -51,6 +61,7 @@ class Sfmsb_Widget extends WP_Widget {
 			 
 			//** this is not in add_admin_scripts because it would break after widget save, need to be in the construct.
 			wp_register_script( 'sfmsb-admin-widget-script', SFMSB_PLUGIN_URL . 'assets/js/widget.js', array('jquery', 'wp-color-picker'), SFMSB_PLUGIN_VERSION );
+
 		 	add_action( 'admin_print_scripts-widgets.php', array('Sfmsb_Widget', 'admin_widget_scripts') );
 	}
 	
@@ -113,7 +124,7 @@ class Sfmsb_Widget extends WP_Widget {
 					( $instance['color'] == '') ? $color = '#' . $item['color'] : $color = $instance['color'];
 					
 					
-					if( $key == 'email' ) {
+					   if( $key == 'email' ) {
 
 							$label = __( 'Your Email address or other contact URL', 'sfmsb_domain');	
 							
@@ -133,6 +144,7 @@ class Sfmsb_Widget extends WP_Widget {
 							$label = __( $item['name'] . ' URL', 'sfmsb_domain');
 							$value = esc_url( $instance['url_' . $key] );
 						}
+
 			?>
 			
 					<a href="javascript:void(0);" <?php echo ( $value == '' ) ? 'class="sfmsb-disable"' : 'class="sfmsb-enable"'; ?>>
@@ -149,6 +161,9 @@ class Sfmsb_Widget extends WP_Widget {
 					    	   type="text" 
 					    	   class=""
 							   value="<?php echo $value ?>"/>
+						
+						<p id="sfmsb-specififeeds-message"><?php _e('Leave <a href="http://www.specificfeeds.com/follow" target="_blank">http://www.specificfeeds.com/follow</a> to allow your visitors to subscribe to your blog by email. 100% free <a href="http://vimeo.com/87846178" target="_blank">(learn more)</a>');?>	</p>
+						
 					</div>
 			
 			<?php } // foreach ?>
@@ -214,7 +229,7 @@ class Sfmsb_Widget extends WP_Widget {
 					});
 				</script>
 			
-			<?
+			<?php
 		
 		}
 
@@ -394,6 +409,11 @@ class Sfmsb_Widget extends WP_Widget {
 	public static function admin_widget_scripts(){
 
 		wp_enqueue_script('sfmsb-admin-widget-script');
+
+		wp_localize_script( 'sfmsb-admin-widget-script', 'sfmsb_vars', array(
+					'ajaxurl'  => admin_url( 'admin-ajax.php' ),
+					'nonce'    => wp_create_nonce( 'follow_nonce' )
+				) );
 	}
 	
 	
