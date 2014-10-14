@@ -30,7 +30,8 @@ div.sfmsb-icons-container.dark a{
 	background-color: #000000;
 }
 
-div.sfmsb-icons-container a{
+div.sfmsb-icons-container a[class^="sfmsb-"], 
+div.sfmsb-icons-container a[class*=" sfmsb-"]{
 	text-decoration:none;
 	margin:0px 8px 10px 8px;
 	display:block;
@@ -48,6 +49,10 @@ div.sfmsb-icons-container{
 
 div.sfmsb-icons-container span{
 	font-size:35px;
+}
+
+div.sfmsb-icons-container.extra-message{
+	padding:10px 10px 120px 10px;
 }
 
 div.sfmsb-input-block,
@@ -82,6 +87,40 @@ a.sfmsb-pending{
 	-webkit-box-shadow: 0 0 0 3px #E8ED45;
 	box-shadow: 0 0 0 3px #E8ED45;
 }
+
+p#sfmsb-specififeeds-message{
+	font-size: 10px;
+	display:none;
+}
+
+.updated.sfmsb-specificfeeds-notice {
+	position:relative;
+}
+
+.updated.sfmsb-specificfeeds-notice p{
+	display:table;
+}
+
+.updated.sfmsb-specificfeeds-notice span{
+	display:table-cell;
+	vertical-align: middle;
+	padding:0px 10px 0px 0px;
+	
+}
+
+.updated.sfmsb-specificfeeds-notice {
+	border-color: #0c459b ;
+	overflow:hidden;
+}
+
+.updated.sfmsb-specificfeeds-notice .sfmsb-icon-specificfeeds{
+	color:#d68678;
+	font-size: 30px;
+	margin-right:5px;
+}
+
+.sfmsb-icon-close:before { content: "\e643"; }
+.sfmsb-icon-close{ font-size: 17px; position:absolute; top: 5px; right:5px; color:#0c459b;}
 
 /* @end */
 

@@ -12,4 +12,5 @@
 if( !defined( 'WP_UNINSTALL_PLUGIN' ) ) exit ();
 
 
-delete_option('sfmsb_settings');
+delete_option('widget_sfmsb_settings');
+delete_option('sfmsb_specificfeeds_viewed_notice');
