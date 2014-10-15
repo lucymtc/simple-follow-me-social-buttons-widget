@@ -30,12 +30,11 @@ class Sfmsb_Widget extends WP_Widget {
 				'style'    => 'circle'
 			);
 			
+			$existing_settings = get_option('widget_sfmsb_settings');
 			
 			foreach ( SFMSB::instance()->available_buttons as $key => $item ) {
 					
-				
-
-				if( $key == 'specificfeeds') {
+				if( $key == 'specificfeeds' && empty( $existing_settings ) ) {
 					
 					$this->defaults['enable_' . $key] = 1;
 					$this->defaults['url_' . $key] 	  = 'http://www.specificfeeds.com/follow';	
@@ -61,8 +60,7 @@ class Sfmsb_Widget extends WP_Widget {
 			 
 			//** this is not in add_admin_scripts because it would break after widget save, need to be in the construct.
 			wp_register_script( 'sfmsb-admin-widget-script', SFMSB_PLUGIN_URL . 'assets/js/widget.js', array('jquery', 'wp-color-picker'), SFMSB_PLUGIN_VERSION );
-
-		 	add_action( 'admin_print_scripts-widgets.php', array('Sfmsb_Widget', 'admin_widget_scripts') );
+			add_action( 'admin_print_scripts-widgets.php', array('Sfmsb_Widget', 'admin_widget_scripts') );
 	}
 	
 	/**
@@ -162,7 +160,7 @@ class Sfmsb_Widget extends WP_Widget {
 					    	   class=""
 							   value="<?php echo $value ?>"/>
 						
-						<p id="sfmsb-specififeeds-message"><?php _e('Leave <a href="http://www.specificfeeds.com/follow" target="_blank">http://www.specificfeeds.com/follow</a> to allow your visitors to subscribe to your blog by email. 100% free <a href="http://vimeo.com/87846178" target="_blank">(learn more)</a>');?>	</p>
+						<p id="sfmsb-specififeeds-message"><?php _e('Leave <a href="http://www.specificfeeds.com/follow" target="_blank">http://www.specificfeeds.com/follow</a> to allow your visitors to subscribe to your blog by email. 100% free <a href="http://www.specificfeeds.com/rss" target="_blank">(learn more)</a>');?>	</p>
 						
 					</div>
 			
@@ -410,10 +408,6 @@ class Sfmsb_Widget extends WP_Widget {
 
 		wp_enqueue_script('sfmsb-admin-widget-script');
 
-		wp_localize_script( 'sfmsb-admin-widget-script', 'sfmsb_vars', array(
-					'ajaxurl'  => admin_url( 'admin-ajax.php' ),
-					'nonce'    => wp_create_nonce( 'follow_nonce' )
-				) );
 	}
 	
 	

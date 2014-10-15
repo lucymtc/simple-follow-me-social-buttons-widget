@@ -2,7 +2,7 @@
 /**
 Plugin Name: Simple Follow Me Social Buttons Widget
 Description: Widget to add some of the most popular follow me social buttons. Retina ready.
-Version: 	 2.3
+Version: 	 2.4
 Author: 	 Lucy Tomás
 Author URI:  https://wordpress.org/support/profile/lucymtc
 License: 	 GPLv2
@@ -78,6 +78,7 @@ final class SFMSB {
 			if( is_admin() ) {
 
 				add_action( 'admin_enqueue_scripts', array('Sfmsb_Widget', 'add_admin_scripts') );
+				add_action( 'admin_enqueue_scripts', array('Sfmsb_Admin', 'add_admin_scripts') );
 				add_action( 'admin_notices', 		 array('SFMSB', 'specificfeeds_notice') );
 
 			} else{
@@ -100,6 +101,7 @@ final class SFMSB {
 		  private function includes () {
 		  	
 			require_once( SFMSB_PLUGIN_DIR . '/includes/widget.php');
+			require_once( SFMSB_PLUGIN_DIR . '/includes/admin.php');
 		
 		 }
 
@@ -114,7 +116,7 @@ final class SFMSB {
 		  	if( !defined('SFMSB_PLUGIN_DIR') )  	{ define('SFMSB_PLUGIN_DIR', plugin_dir_path( __FILE__ )); }
 			if( !defined('SFMSB_PLUGIN_URL') )  	{ define('SFMSB_PLUGIN_URL', plugin_dir_url( __FILE__ ));  }
 			if( !defined('SFMSB_PLUGIN_FILE') ) 	{ define('SFMSB_PLUGIN_FILE',  __FILE__ );  }
-			if( !defined('SFMSB_PLUGIN_VERSION') )  { define('SFMSB_PLUGIN_VERSION', '2.3');  } 
+			if( !defined('SFMSB_PLUGIN_VERSION') )  { define('SFMSB_PLUGIN_VERSION', '2.4');  } 
 			
 		  }
 		  
@@ -157,7 +159,8 @@ final class SFMSB {
 											 'lastfm'       => array( 'name' => 'Last.fm', 		'color' => 'd5565a' ),
 											 'trover'       => array( 'name' => 'Trover', 		'color' => 'b79344' ),
 											 'xing'       	=> array( 'name' => 'Xing.com', 	'color' => '498383' ),
-											 'behance'      => array( 'name' => 'Behance', 		'color' => '717272' )
+											 'behance'      => array( 'name' => 'Behance', 		'color' => '717272' ),
+											 'stackoverflow'=> array( 'name' => 'Stackoverflow','color' => 'f2ab5a' )
 											 );
 			
 		  }
@@ -180,11 +183,9 @@ final class SFMSB {
 
 	 	public static function specificfeeds_notice() {
 	 	
-	 	
-	 		$sreen  = get_current_screen();
 	 		$option = get_option('sfmsb_specificfeeds_viewed_notice');
 
-	 		if( empty($option ) && $sreen->base == 'widgets') {
+	 		if( empty($option ) ) {
 	 	?>
 			    <div class="updated sfmsb-specificfeeds-notice">
 			    	
