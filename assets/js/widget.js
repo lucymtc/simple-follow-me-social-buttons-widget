@@ -1,3 +1,9 @@
+/**
+ * widget scripts
+ * author Lucy Tomás
+ * @since 1.0 
+ */
+
 jQuery(document).ajaxSuccess(function(e, xhr, settings) {
   
   	init();
@@ -7,31 +13,6 @@ jQuery(document).ajaxSuccess(function(e, xhr, settings) {
 jQuery(document).ready(function($) {
 
 	init();
-	init_specificfeeds_notice();
-
-	function init_specificfeeds_notice(){
-
-		$( 'a#sfmsb-specificfeeds-close' ).on( 'click', function( e ){
-			
-			e.preventDefault();
-
-		
-   			var data = {
-			action    					: 'sfmsb_notice_viewed',
-			specificfeeds_viewed_notice : 1,
-			nonce	  					: sfmsb_vars.nonce
-		};
-   		
-	   		$.post(sfmsb_vars.ajaxurl, data, function(response){
-	   			
-	   			if( response == 'success') {
-	   				$('.sfmsb-specificfeeds-notice').remove();
-	   			}
-	   			
-	   		});
-
-		});
-	}
 	
 });
 
