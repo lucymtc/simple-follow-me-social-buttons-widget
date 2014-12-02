@@ -2,7 +2,7 @@
 /**
 Plugin Name: Simple Follow Me Social Buttons Widget
 Description: Widget to add some of the most popular follow me social buttons. Retina ready.
-Version: 	 2.4
+Version: 	 2.5
 Author: 	 Lucy Tomás
 Author URI:  https://wordpress.org/support/profile/lucymtc
 License: 	 GPLv2
@@ -116,7 +116,7 @@ final class SFMSB {
 		  	if( !defined('SFMSB_PLUGIN_DIR') )  	{ define('SFMSB_PLUGIN_DIR', plugin_dir_path( __FILE__ )); }
 			if( !defined('SFMSB_PLUGIN_URL') )  	{ define('SFMSB_PLUGIN_URL', plugin_dir_url( __FILE__ ));  }
 			if( !defined('SFMSB_PLUGIN_FILE') ) 	{ define('SFMSB_PLUGIN_FILE',  __FILE__ );  }
-			if( !defined('SFMSB_PLUGIN_VERSION') )  { define('SFMSB_PLUGIN_VERSION', '2.4');  } 
+			if( !defined('SFMSB_PLUGIN_VERSION') )  { define('SFMSB_PLUGIN_VERSION', '2.5');  } 
 			
 		  }
 		  
@@ -160,7 +160,16 @@ final class SFMSB {
 											 'trover'       => array( 'name' => 'Trover', 		'color' => 'b79344' ),
 											 'xing'       	=> array( 'name' => 'Xing.com', 	'color' => '498383' ),
 											 'behance'      => array( 'name' => 'Behance', 		'color' => '717272' ),
-											 'stackoverflow'=> array( 'name' => 'Stackoverflow','color' => 'f2ab5a' )
+											 'stackoverflow'=> array( 'name' => 'Stackoverflow','color' => 'f2ab5a' ),
+											 'blogger'		=> array( 'name' => 'Blogger',		'color' => 'f5b075' ),
+											 'reddit'		=> array( 'name' => 'Reddit',		'color' => 'd3f3fe' ),
+											 '500px'		=> array( 'name' => '500px.com',	'color' => '717272' ),
+											 'remind'		=> array( 'name' => 'Remind', 		'color' => '72c9ff' ),
+											 'dribbble'		=> array( 'name' => 'Dribbble',		'color' => 'efa3be' ),
+											 'picasa'		=> array( 'name' => 'Picasa',		'color' => 'b06bb3' ),
+											 'rdio'			=> array( 'name' => 'Rdio',			'color' => '4e9ace' ),
+											 'skype'		=> array( 'name' => 'Skype',		'color' => '47bfeb' ),
+											 'stumbleupon'	=> array( 'name' => 'Stumbleupon',	'color' => 'e47961' )
 											 );
 			
 		  }
