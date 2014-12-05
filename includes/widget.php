@@ -60,7 +60,8 @@ class Sfmsb_Widget extends WP_Widget {
 			 
 			//** this is not in add_admin_scripts because it would break after widget save, need to be in the construct.
 			wp_register_script( 'sfmsb-admin-widget-script', SFMSB_PLUGIN_URL . 'assets/js/widget.js', array('jquery', 'wp-color-picker'), SFMSB_PLUGIN_VERSION );
-			add_action( 'admin_print_scripts-widgets.php', array('Sfmsb_Widget', 'admin_widget_scripts') );
+			add_action( 'admin_enqueue_scripts', array('Sfmsb_Widget', 'admin_widget_scripts') );
+
 	}
 	
 	/**
@@ -267,9 +268,10 @@ class Sfmsb_Widget extends WP_Widget {
 				}
 					
 				$instance['url_' . $key] 	 = $value;
-				$instance['enable_' . $key]  = absint($new_instance['enable_' . $key]);
-				
+				@$instance['enable_' . $key]  = absint($new_instance['enable_' . $key]);
+			
 			} 
+
 			
 			$instance['size']     = absint(esc_attr($new_instance['size']));
 			$instance['position'] = esc_attr($new_instance['position']);
@@ -395,7 +397,7 @@ class Sfmsb_Widget extends WP_Widget {
 	     wp_enqueue_style('sfmsb-admin-style', SFMSB_PLUGIN_URL . 'assets/css/admin.css', array(), SFMSB_PLUGIN_VERSION);
 		 wp_enqueue_style('sfmsb-icons', SFMSB_PLUGIN_URL . 'assets/css/icons.css', array(), SFMSB_PLUGIN_VERSION);
 			 
-		  wp_enqueue_script( 'wp-color-picker' );
+		 wp_enqueue_script( 'wp-color-picker' );
 		
 	}
 	

@@ -2,7 +2,7 @@ Simple Follow Me Social Buttons Widget for WordPress
 ========================================
 Requires at least: 3.8
 Tested up to: 4.0.1
-Stable tag: 2.5
+Stable tag: 2.6
 Donate link: http://wptips.me/simple-follow-social-buttons-widget/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -53,7 +53,7 @@ Availbale Icons:
 	* Blogger
 	* Reddit
 	* 500px.com
-	* Remind (remind101)
+	* Remind
 	* Dribbble
 	* Picasa
 	* Rdio
@@ -73,6 +73,9 @@ http://wptips.me/simple-follow-social-buttons-widget/
 4. Go to Appearance -> Widgets and look for the widget Simple follow me social buttons
 
 == Changelog ==
+
+= 2.6 =
+* Fixed problem of icons not been clickable in other pages that aren't the widgets page, makes it compatible with plugins that set widgets in pages or posts.
 
 = 2.5 =
 * Added new set of icons.
