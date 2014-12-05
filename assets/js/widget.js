@@ -22,7 +22,7 @@ jQuery(document).ready(function($) {
 function init (){
 	
 	jQuery( '.sfmsb-color-picker' ).wpColorPicker();
-		                
+
 	//** Icon events
 	jQuery( '.sfmsb-icons-container a.sfmsb-disable, .sfmsb-icons-container a.sfmsb-enable' ).on( 'click', function( event, ui ){
 		
@@ -31,10 +31,30 @@ function init (){
 
 		var tmp = jQuery( this ).find( 'span' ).attr( 'class' ).split( ' ' );
 		tmp 	= tmp[0].split( '-' );
-								
+
 		var icon_name = tmp[2];
+
+		// get the id of the widget on the widgets page
 		var widget 	  = '#' + jQuery( this ).closest( '.widget' ).attr( 'id' );
-								
+
+		/* if undefined probably not the widgets page, for example could com from a page builder
+		   so set id to the icons container to work with that element*/
+
+		if( widget == '#undefined') {
+
+			widget = '#' + jQuery( this ).closest( '.sfmsb-icons-container ' ).attr( 'id' );	
+
+				if( widget == '#undefined') {
+				
+					widget = get_random_id();
+					jQuery( this ).closest( '.sfmsb-icons-container ' ).attr('id', widget);
+
+					widget = '#' + widget;	
+				}
+
+		}
+
+		
 		jQuery( widget + ' .sfmsb-initial-message' ).css( 'display', 'none' );
 		jQuery( widget + ' .sfmsb-input-block' ).css( 'display', 'none' );
 		jQuery( widget + ' .sfmsb-input-block.sfmsb-' + icon_name ).css( 'display', 'block' );
@@ -68,4 +88,18 @@ function init (){
 			}
 	});
 	
+}
+
+/**
+ * get_random_id
+ * @since 2.6
+ */
+
+function get_random_id(){
+
+	var num = Math.floor((Math.random() * 999) + 1); 
+	var id  = 'sfmsb-' + num;
+
+	return id;
+
 }
