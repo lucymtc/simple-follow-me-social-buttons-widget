@@ -1,11 +1,11 @@
 Simple Follow Me Social Buttons Widget for WordPress
 ========================================
-Requires at least: 3.8
-Tested up to: 4.0.1
-Stable tag: 2.6
-Donate link: http://wptips.me/simple-follow-social-buttons-widget/
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+- Requires at least: 3.8
+- Tested up to: 4.0.1
+- Stable version: 2.7
+- Donate link: http://wptips.me/simple-follow-social-buttons-widget/
+- License: GPLv2 or later
+- License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Add follow me social buttons. Uses font icons, ready for Retina Display.
 
@@ -59,6 +59,8 @@ Availbale Icons:
 	* Rdio
 	* Skype
 	* Stumbleupon
+	* Foursquare
+	* Ello.co
 
 Missing any icons? Please feel free to request the icon you need.
 
@@ -73,6 +75,10 @@ http://wptips.me/simple-follow-social-buttons-widget/
 4. Go to Appearance -> Widgets and look for the widget Simple follow me social buttons
 
 == Changelog ==
+
+= 2.7 =
+* Added Ello and Foursquare icons.
+* Added Serbo-Croatian translation provided by Borisa Djuraskovic from webhostinghub.com
 
 = 2.6 =
 * Fixed problem of icons not been clickable in other pages that aren't the widgets page, makes it compatible with plugins that set widgets in pages or posts.
