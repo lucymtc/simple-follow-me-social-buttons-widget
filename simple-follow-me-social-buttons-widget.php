@@ -2,7 +2,7 @@
 /**
 Plugin Name: Simple Follow Me Social Buttons Widget
 Description: Widget to add some of the most popular follow me social buttons. Retina ready.
-Version: 	 2.6
+Version: 	 2.7
 Author: 	 Lucy Tomás
 Author URI:  https://wordpress.org/support/profile/lucymtc
 License: 	 GPLv2
@@ -116,7 +116,7 @@ final class SFMSB {
 		  	if( !defined('SFMSB_PLUGIN_DIR') )  	{ define('SFMSB_PLUGIN_DIR', plugin_dir_path( __FILE__ )); }
 			if( !defined('SFMSB_PLUGIN_URL') )  	{ define('SFMSB_PLUGIN_URL', plugin_dir_url( __FILE__ ));  }
 			if( !defined('SFMSB_PLUGIN_FILE') ) 	{ define('SFMSB_PLUGIN_FILE',  __FILE__ );  }
-			if( !defined('SFMSB_PLUGIN_VERSION') )  { define('SFMSB_PLUGIN_VERSION', '2.6');  } 
+			if( !defined('SFMSB_PLUGIN_VERSION') )  { define('SFMSB_PLUGIN_VERSION', '2.7');  } 
 			
 		  }
 		  
@@ -169,7 +169,9 @@ final class SFMSB {
 											 'picasa'		=> array( 'name' => 'Picasa',		'color' => 'b06bb3' ),
 											 'rdio'			=> array( 'name' => 'Rdio',			'color' => '4e9ace' ),
 											 'skype'		=> array( 'name' => 'Skype',		'color' => '47bfeb' ),
-											 'stumbleupon'	=> array( 'name' => 'Stumbleupon',	'color' => 'e47961' )
+											 'stumbleupon'	=> array( 'name' => 'Stumbleupon',	'color' => 'e47961' ),
+											 'foursquare'	=> array( 'name' => 'Foursquare',	'color' => 'f37496' ),
+											 'ello'		    => array( 'name' => 'Ello.co',		'color' => '717272' )
 											 );
 			
 		  }
