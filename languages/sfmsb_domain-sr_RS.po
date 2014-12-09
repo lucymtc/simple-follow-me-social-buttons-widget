@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Simple Follow Me Social Buttons Widget\n"
+"POT-Creation-Date: 2014-08-27 11:05+0100\n"
+"PO-Revision-Date: 2014-12-09 09:38+0100\n"
+"Last-Translator: Borisa Djuraskovic <borisad@webhostinghub.com>\n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: includes/widget.php:25
+msgid "Social"
+msgstr "Social"
+
+#: includes/widget.php:28
+msgid "Follow me on:"
+msgstr "Pratite me na:"
+
+#: includes/widget.php:43
+msgid "Adds \"follow me\" social buttons"
+msgstr "Dodaje \"pratite me\" tastere za društvene mreže "
+
+#: includes/widget.php:49
+msgid "Simple follow me social buttons"
+msgstr "Simple tasteri za praćenje na društvenim mrežama"
+
+#: includes/widget.php:74
+msgid "Title"
+msgstr "Naslov"
+
+#: includes/widget.php:85
+msgid "Text"
+msgstr "Tekst"
+
+#: includes/widget.php:114
+msgid "Your Email address or other contact URL"
+msgstr "Vaša mail adresa ili URL za drugi kontakt"
+
+#: includes/widget.php:129
+msgid " URL"
+msgstr " URL"
+
+#: includes/widget.php:154
+msgid ""
+"Click on any icon to input the url and enable it. Leave the input blank to "
+"disable the icon."
+msgstr ""
+"Kliknite na bilo koju ikonicu da biste uneli url i aktivirali ga. Ostavite "
+"prazno da biste deaktivirali ikonicu."
+
+#: includes/widget.php:161
+msgid "Style"
+msgstr "Stil"
+
+#: includes/widget.php:163
+msgid "Rounded"
+msgstr "Zaobljen"
+
+#: includes/widget.php:164
+msgid "Squared"
+msgstr "Četvrtast"
+
+#: includes/widget.php:169
+msgid "Color"
+msgstr "Boja"
+
+#: includes/widget.php:175
+msgid "Size"
+msgstr "Veličina"
+
+#: includes/widget.php:186
+msgid "Position"
+msgstr "Pozicija"
+
+#: includes/widget.php:195
+msgid "Icons under text"
+msgstr "Ikonice ispod teksta"
+
+#: includes/widget.php:202
+msgid "Icons next to text"
+msgstr "Ikonice pored teksta"
+
+#~ msgid "Your "
+#~ msgstr "Tu "
