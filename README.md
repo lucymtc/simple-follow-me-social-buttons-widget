@@ -2,7 +2,7 @@ Simple Follow Me Social Buttons Widget for WordPress
 ========================================
 - Requires at least: 3.8
 - Tested up to: 4.0.1
-- Stable version: 2.7
+- Stable version: 2.8
 - Donate link: http://wptips.me/simple-follow-social-buttons-widget/
 - License: GPLv2 or later
 - License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -61,11 +61,17 @@ Availbale Icons:
 	* Stumbleupon
 	* Foursquare
 	* Ello.co
+	* Openclipart
 
 Missing any icons? Please feel free to request the icon you need.
 
 And if you are happy with the plugin and want to thank me you can find a donation button on this page. Thanks!!
 http://wptips.me/simple-follow-social-buttons-widget/
+
+Translations available:
+- English 
+- Spanish 
+- Serbo-Croatian. Provided by Borisa Djuraskovic from webhostinghub.com
 
 == Installation ==
 
@@ -75,6 +81,10 @@ http://wptips.me/simple-follow-social-buttons-widget/
 4. Go to Appearance -> Widgets and look for the widget Simple follow me social buttons
 
 == Changelog ==
+
+= 2.8 =
+* Added Openclipart icon.
+* Modification on ello.co icon.
 
 = 2.7 =
 * Added Ello and Foursquare icons.
