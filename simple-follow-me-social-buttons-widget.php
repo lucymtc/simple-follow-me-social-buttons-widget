@@ -172,7 +172,12 @@ final class SFMSB {
 											 'stumbleupon'	=> array( 'name' => 'Stumbleupon',	'color' => 'e47961' ),
 											 'foursquare'	=> array( 'name' => 'Foursquare',	'color' => 'f37496' ),
 											 'ello'		    => array( 'name' => 'Ello.co',		'color' => '717272' ),
-											 'openclipart'	=> array( 'name' => 'Openclipart',	'color' => '74ab40' )
+											 'openclipart'	=> array( 'name' => 'Openclipart',	'color' => '74ab40' ),
+											 'stitcher'		=> array( 'name' => 'Stitcher',		'color' => '717272' ),
+											 'canalcocina'	=> array( 'name' => 'CanalCocina',	'color' => '717272' ),
+											 'kukers'		=> array( 'name' => 'Kukers',		'color' => '778752' ),
+											 'tastespotting'=> array( 'name' => 'TasteSpotting','color' => '808285' ),
+											 'foodgawker'	=> array( 'name' => 'Foodgawker',	'color' => '808285' )
 											 );
 			
 		  }
