@@ -79,7 +79,7 @@ Translations available:
 - Serbo-Croatian. Provided by Borisa Djuraskovic from webhostinghub.com
 
 Other plugins that you may have interest:
-- Simple Cookie Notification Bar <a href="https://wordpress.org/plugins/simple-cookie-notification-bar/">Download</a>View</a> | <a href="https://downloads.wordpress.org/plugin/simple-cookie-notification-bar.zip">Download</a>
+- Simple Cookie Notification Bar <a href="https://wordpress.org/plugins/simple-cookie-notification-bar/">View</a> | <a href="https://downloads.wordpress.org/plugin/simple-cookie-notification-bar.zip">Download</a>
 
 
 == Installation ==
