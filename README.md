@@ -1,8 +1,8 @@
 Simple Follow Me Social Buttons Widget for WordPress
 ========================================
 - Requires at least: 3.8
-- Tested up to: 4.0.1
-- Stable version: 2.8
+- Tested up to: 4.1
+- Stable version: 2.9
 - Donate link: http://wptips.me/simple-follow-social-buttons-widget/
 - License: GPLv2 or later
 - License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -62,6 +62,11 @@ Availbale Icons:
 	* Foursquare
 	* Ello.co
 	* Openclipart
+	* Stitcher
+	* Canal Cocina
+	* Kukers
+	* TasteSpotting
+	* Foodgawker 
 
 Missing any icons? Please feel free to request the icon you need.
 
@@ -73,6 +78,10 @@ Translations available:
 - Spanish 
 - Serbo-Croatian. Provided by Borisa Djuraskovic from webhostinghub.com
 
+Other plugins that you may have interest:
+- Simple Cookie Notification Bar <a href="https://wordpress.org/plugins/simple-cookie-notification-bar/">Download</a>View</a> | <a href="https://downloads.wordpress.org/plugin/simple-cookie-notification-bar.zip">Download</a>
+
+
 == Installation ==
 
 1. Unzip simple-follow-me-social-buttons.zip
@@ -81,6 +90,9 @@ Translations available:
 4. Go to Appearance -> Widgets and look for the widget Simple follow me social buttons
 
 == Changelog ==
+
+= 2.9 =
+* Added new icons.
 
 = 2.8 =
 * Added Openclipart icon.
