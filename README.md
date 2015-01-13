@@ -2,7 +2,7 @@ Simple Follow Me Social Buttons Widget for WordPress
 ========================================
 - Requires at least: 3.8
 - Tested up to: 4.1
-- Stable version: 2.9
+- Stable version: 3.0
 - Donate link: http://wptips.me/simple-follow-social-buttons-widget/
 - License: GPLv2 or later
 - License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -67,6 +67,8 @@ Availbale Icons:
 	* Kukers
 	* TasteSpotting
 	* Foodgawker 
+	* Tripadvisor
+	* Scoop.it
 
 Missing any icons? Please feel free to request the icon you need.
 
@@ -90,6 +92,10 @@ Other plugins that you may have interest:
 4. Go to Appearance -> Widgets and look for the widget Simple follow me social buttons
 
 == Changelog ==
+
+= 3.0 =
+* Added new icons.
+* Fixed some icons not displaying properly.
 
 = 2.9 =
 * Added new icons.
