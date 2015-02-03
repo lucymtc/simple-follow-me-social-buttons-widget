@@ -2,7 +2,7 @@ Simple Follow Me Social Buttons Widget for WordPress
 ========================================
 - Requires at least: 3.8
 - Tested up to: 4.1
-- Stable version: 3.0
+- Stable version: 3.1
 - Donate link: http://wptips.me/simple-follow-social-buttons-widget/
 - License: GPLv2 or later
 - License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -12,9 +12,11 @@ Add follow me social buttons. Uses font icons, ready for Retina Display.
 No settings page, only a simple widget to add to your widget areas. 
 It displays the Follow Me social buttons. No images, this widget uses a font icons so it makes it ready for Retina Display.
 
-* Options to choose style between rounded and square.
-* You can also enter the size of the icons in pixels.
-* Choose the color from the color picker. Leave blank for default colors.
+*   Options to choose style between rounded and square.
+*   You can also enter the size of the icons in pixels.
+*   Choose the color from the color picker. Leave blank for default colors.
+*   Choose hover effect color.
+*   Choose horizontal/vertical layout.
 
 Availbale Icons:
  
@@ -69,6 +71,14 @@ Availbale Icons:
 	* Foodgawker 
 	* Tripadvisor
 	* Scoop.it
+	* Twitch
+	* Tunein
+	* Steam
+	* Scribd
+	* Ravelry
+	* ISSUU
+	* Etsy
+	* Anobii
 
 Missing any icons? Please feel free to request the icon you need.
 
@@ -76,12 +86,12 @@ And if you are happy with the plugin and want to thank me you can find a donatio
 http://wptips.me/simple-follow-social-buttons-widget/
 
 Translations available:
-- English 
-- Spanish 
-- Serbo-Croatian. Provided by Borisa Djuraskovic from webhostinghub.com
+* English 
+* Spanish 
+* Serbo-Croatian. Provided by Borisa Djuraskovic from webhostinghub.com
 
 Other plugins that you may have interest:
-- Simple Cookie Notification Bar <a href="https://wordpress.org/plugins/simple-cookie-notification-bar/">View</a> | <a href="https://downloads.wordpress.org/plugin/simple-cookie-notification-bar.zip">Download</a>
+* Simple Cookie Notification Bar <a href="https://wordpress.org/plugins/simple-cookie-notification-bar/">View</a> | <a href="https://downloads.wordpress.org/plugin/simple-cookie-notification-bar.zip">Download</a>
 
 
 == Installation ==
@@ -92,6 +102,11 @@ Other plugins that you may have interest:
 4. Go to Appearance -> Widgets and look for the widget Simple follow me social buttons
 
 == Changelog ==
+
+= 3.1 =
+* Added new icons.
+* Added horizontal/vertical layout option.
+* Added hover color option.
 
 = 3.0 =
 * Added new icons.
