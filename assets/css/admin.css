@@ -26,6 +26,22 @@ div.widget[id*=_sfmsb] input.s{
 	width:100px;
 }
 
+div.widget[id*=_sfmsb] div.row{
+	overflow: hidden;
+	margin: 0;
+}
+
+
+div.widget[id*=_sfmsb] div.row p{
+	float:left;
+}
+
+div.widget[id*=_sfmsb] p{
+	
+	margin: 0 20px 10px 0px;
+}
+
+
 div.sfmsb-icons-container.dark a{
 	background-color: #000000;
 }
