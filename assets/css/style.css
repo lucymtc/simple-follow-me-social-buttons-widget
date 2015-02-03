@@ -23,9 +23,21 @@
 	margin-bottom: 5px;
 }
 
+.sfmsb-follow-social-buttons.vertical a{
+	float: none;
+} 
+
+/* Smartphones  */
+/*@media only screen and (max-width : 480px) {
+	
+	.sfmsb-follow-social-buttons.vertical a{
+		float: left;
+	} 
+
+}*/
+
 .sfmsb-follow-social-buttons.sfmsb-under .sfmsb-text{
 	float: none;
-	
 }
 
 

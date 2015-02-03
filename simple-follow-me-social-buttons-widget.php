@@ -2,7 +2,7 @@
 /**
 Plugin Name: Simple Follow Me Social Buttons Widget
 Description: Widget to add some of the most popular follow me social buttons. Retina ready.
-Version: 	 3.0
+Version: 	 3.1
 Author: 	 Lucy Tomás
 Author URI:  https://wordpress.org/support/profile/lucymtc
 License: 	 GPLv2
@@ -83,7 +83,7 @@ final class SFMSB {
 
 			} else{
 				
-				add_action( 'wp_enqueue_scripts', array('Sfmsb_Widget', 'add_style') );
+				add_action( 'wp_enqueue_scripts', array('Sfmsb_Widget', 'add_scripts') );
 			}
 
 			add_action('wp_ajax_sfmsb_notice_viewed', array('SFMSB', 'specificfeeds_save_notice_viewed'));
@@ -116,7 +116,7 @@ final class SFMSB {
 		  	if( !defined('SFMSB_PLUGIN_DIR') )  	{ define('SFMSB_PLUGIN_DIR', plugin_dir_path( __FILE__ )); }
 			if( !defined('SFMSB_PLUGIN_URL') )  	{ define('SFMSB_PLUGIN_URL', plugin_dir_url( __FILE__ ));  }
 			if( !defined('SFMSB_PLUGIN_FILE') ) 	{ define('SFMSB_PLUGIN_FILE',  __FILE__ );  }
-			if( !defined('SFMSB_PLUGIN_VERSION') )  { define('SFMSB_PLUGIN_VERSION', '3.0');  } 
+			if( !defined('SFMSB_PLUGIN_VERSION') )  { define('SFMSB_PLUGIN_VERSION', '3.1');  } 
 			
 		  }
 		  
@@ -179,7 +179,15 @@ final class SFMSB {
 											 'tastespotting'=> array( 'name' => 'TasteSpotting','color' => '808285' ),
 											 'foodgawker'	=> array( 'name' => 'Foodgawker',	'color' => '808285' ),
 											 'tripadvisor'	=> array( 'name' => 'Tripadvisor',	'color' => '73b35b' ),
-											 'scoopit'		=> array( 'name' => 'Scoop.it',		'color' => '88ad69' )
+											 'scoopit'		=> array( 'name' => 'Scoop.it',		'color' => '88ad69' ),
+											 'twitch'		=> array( 'name' => 'Twitch',		'color' => '8d79b0' ),
+											 'tunein'		=> array( 'name' => 'Tunein',		'color' => '6fb6af' ),
+											 'steam'		=> array( 'name' => 'Steam',		'color' => '467293' ),
+											 'scribd'		=> array( 'name' => 'Scribd',		'color' => '3074a0' ),
+											 'ravelry'		=> array( 'name' => 'Ravelry',		'color' => 'de4d7d' ),
+											 'issuu'		=> array( 'name' => 'ISSUU',		'color' => 'ec8569' ),
+											 'etsy'			=> array( 'name' => 'Etsy',			'color' => 'd97850' ),
+											 'anobii'		=> array( 'name' => 'ANOBII',		'color' => 'f4995d' )
 											 );
 			
 		  }

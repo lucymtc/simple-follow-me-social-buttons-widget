@@ -27,7 +27,9 @@ class Sfmsb_Widget extends WP_Widget {
 				'position' => 'under',
 				'text'     => __('Follow me on:', 'sfmsb_domain'),
 				'color'    => '',
-				'style'    => 'circle'
+				'hover_color' => '',
+				'style'    => 'circle',
+				'layout'   => 'horizontal'
 			);
 			
 			$existing_settings = get_option('widget_sfmsb_settings');
@@ -174,23 +176,20 @@ class Sfmsb_Widget extends WP_Widget {
 					
 			</div>
 			
+			<div class="row">
 			<!-- *** STYLE select ***-->
 				<p>
-					<label for="<?php echo $this->get_field_id( 'style' ); ?>"><b><?php _e('Style', 'sfmsb_domain'); ?></b></label>	
+					<label for="<?php echo $this->get_field_id( 'style' ); ?>"><b><?php _e('Style', 'sfmsb_domain'); ?></b></label>	<br/>
 							<select id="<?php echo $this->get_field_id( 'style' ); ?>" name="<?php echo $this->get_field_name( 'style' ); ?>">
 								<option value="circle" <?php selected($instance[ 'style' ], 'circle') ?>><?php _e('Rounded', 'sfmsb_domain') ?></option>
 								<option value="square" <?php selected($instance[ 'style' ], 'square') ?>><?php _e('Squared', 'sfmsb_domain') ?></option>
 							</select>
 				</p>
-				 
-       			 <p>
-           			 <label for="<?php echo $this->get_field_id( 'color' ); ?>"><b><?php _e( 'Color', 'sfmsb_domain' ); ?></b></label>
-            		 <input class="sfmsb-color-picker" type="text" id="<?php echo $this->get_field_id( 'color' ); ?>" name="<?php echo $this->get_field_name( 'color' ); ?>" value="<?php echo esc_attr( $instance['color'] ); ?>" />                            
-        		</p>
-				
-				<!-- *** SIZES radios ***-->
+
+
+			<!-- *** SIZES radios ***-->
 				<p>
-					<label for="<?php echo $this->get_field_id( 'size' ); ?>"><b><?php _e('Size', 'sfmsb_domain'); ?></b></label>&nbsp;&nbsp;&nbsp;
+					<label for="<?php echo $this->get_field_id( 'size' ); ?>"><b><?php _e('Size', 'sfmsb_domain'); ?></b></label><br/>
 							
 					<input class="s"
 					   	   name="<?php echo $this->get_field_name( 'size' ); ?>" 
@@ -198,6 +197,48 @@ class Sfmsb_Widget extends WP_Widget {
 					   	   value="<?php echo esc_attr( $instance['size'] ); ?>" /> px
 							
 				</p>
+			</div>	
+				 
+			<!-- *** COLOR picker ***-->
+			<div class="row">
+
+       			 <p>
+           			 <label for="<?php echo $this->get_field_id( 'color' ); ?>"><b><?php _e( 'Color', 'sfmsb_domain' ); ?></b></label><br/>
+            		 <input class="sfmsb-color-picker" type="text" id="<?php echo $this->get_field_id( 'color' ); ?>" name="<?php echo $this->get_field_name( 'color' ); ?>" value="<?php echo esc_attr( $instance['color'] ); ?>" />                            
+        		
+            	</p> 
+        	<!-- *** HOVER COLOR picker ***-->
+
+       			<p>
+           			 <label for="<?php echo $this->get_field_id( 'hover_color' ); ?>"><b><?php _e( 'Hover Color', 'sfmsb_domain' ); ?></b></label><br/>
+            		 <input class="sfmsb-color-picker" type="text" id="<?php echo $this->get_field_id( 'hover_color' ); ?>" name="<?php echo $this->get_field_name( 'hover_color' ); ?>" value="<?php echo esc_attr( $instance['hover_color'] ); ?>" />                            
+        		</p>	
+
+        	</div>	
+				
+
+				<!-- *** LAYOUT radios ***-->
+				<p>
+					<label for="<?php echo $this->get_field_id( 'layout' ); ?>"><b><?php _e('Layout', 'sfmsb_domain'); ?></b></label>	
+					<br/>
+							
+								
+					<input id="<?php echo $this->get_field_id( 'layout' ); ?>" 
+					       name="<?php echo $this->get_field_name( 'layout' ); ?>" 
+						   type="radio" 
+						   value="horizontal" <?php checked('horizontal', $instance['layout']) ?> />
+								   
+					<label><?php _e('Horizontal', 'sfmsb_domain'); ?></label>&nbsp;
+						
+						<input id="<?php echo $this->get_field_id( 'layout' ); ?>" 
+							   name="<?php echo $this->get_field_name( 'layout' ); ?>" 
+							   type="radio" 
+							   value="vertical" <?php checked('vertical', $instance['layout']) ?> />
+								   
+					<label><?php _e('Vertical', 'sfmsb_domain'); ?></label>
+						
+				</p>
+				
 				
 				<!-- *** POSITIONS radios ***-->
 				<p>
@@ -220,6 +261,8 @@ class Sfmsb_Widget extends WP_Widget {
 					<label><?php _e('Icons next to text', 'sfmsb_domain'); ?></label>
 						
 				</p>
+
+				
 				
 				<script>
 					
@@ -273,10 +316,12 @@ class Sfmsb_Widget extends WP_Widget {
 			} 
 
 			
-			$instance['size']     = absint(esc_attr($new_instance['size']));
-			$instance['position'] = esc_attr($new_instance['position']);
-			$instance['style']    = esc_attr($new_instance['style']);
-			$instance['color'] 	  = esc_attr($new_instance['color']);
+			$instance['size']     	 = absint(esc_attr($new_instance['size']));
+			$instance['position'] 	 = esc_attr($new_instance['position']);
+			$instance['style']    	 = esc_attr($new_instance['style']);
+			$instance['color'] 	  	 = esc_attr($new_instance['color']);
+			$instance['hover_color'] = esc_attr($new_instance['hover_color']);
+			$instance['layout']   	 = esc_attr($new_instance['layout']);
 			
 			return $instance;
 	}
@@ -301,7 +346,14 @@ class Sfmsb_Widget extends WP_Widget {
 				// ** do_action
 				do_action('sfmsb_widget_pre_buttons');
 		
-				echo '<div class="sfmsb-follow-social-buttons sfmsb-' . $instance['position'] . ' sfmsb-' . $instance['style'] . ' ' . $instance['size'] . '">';
+				echo '<div';
+				echo ' class="sfmsb-follow-social-buttons sfmsb-' . $instance['position'] . ' sfmsb-' . $instance['style'] . ' ' . $instance['size'] . ' ' . $instance['layout']   . '"';
+				
+				if( $instance['hover_color'] ) {
+					echo ' data-hover="'. $instance['hover_color'] .'"';
+				}
+
+				echo '>';
 				
 				if ( !empty( $title ) ) { echo $before_title . $title  . $after_title; };
 				
@@ -346,7 +398,10 @@ class Sfmsb_Widget extends WP_Widget {
 							}
 							
 							echo '<a target="_blank" href="' . $href . '">';
-								echo '<span class="sfmsb-icon-'. $key .' '. $instance['style'] .'" style="color:' . $color . ';font-size:'. $instance['size'] .'px;"></span>';
+								echo '<span class="sfmsb-icon-'. $key .' '. $instance['style'] .'"'; 
+								echo ' style="color:' . $color . ';font-size:'. $instance['size'] .'px;"';
+								echo ' data-color="'. $color .'"';
+								echo '></span>';
 							echo '</a>';
 						
 						}// if enabled	
@@ -377,16 +432,18 @@ class Sfmsb_Widget extends WP_Widget {
 	
 	
 	/**
-	 * add_style
+	 * add_scripts
 	 * @since 1.0.0
 	 */
-	public static function add_style() {
+	public static function add_scripts() {
 
 		wp_enqueue_style('sfmsb-style', SFMSB_PLUGIN_URL . 'assets/css/style.css', array(), SFMSB_PLUGIN_VERSION);
 		wp_enqueue_style('sfmsb-icons', SFMSB_PLUGIN_URL . 'assets/css/icons.css', array(), SFMSB_PLUGIN_VERSION);
 
+		wp_enqueue_script( 'sfmsb-script', SFMSB_PLUGIN_URL . 'assets/js/front-widget.js', array('jquery'), SFMSB_PLUGIN_VERSION );
+
 	}
-	
+
 	/**
 	 * add_admin_scripts
 	 * @since 1.0.0
