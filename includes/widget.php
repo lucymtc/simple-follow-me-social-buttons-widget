@@ -125,25 +125,51 @@ class Sfmsb_Widget extends WP_Widget {
 					( $instance['color'] == '') ? $color = '#' . $item['color'] : $color = $instance['color'];
 					
 					
-					   if( $key == 'email' ) {
+						switch( TRUE ) {
 
-							$label = __( 'Your Email address or other contact URL', 'sfmsb_domain');	
-							
-							$instance['url_' . $key] = str_replace('mailto:', '', $instance['url_' . $key]);
-							
-							if( filter_var( $instance['url_' . $key], FILTER_VALIDATE_EMAIL ) ){
-									
-								$value = esc_attr( $instance['url_' . $key] );	
-							} else {
-							
-								$value = esc_url( $instance['url_' . $key] );
-							} // if
-							
-							
-						} else {
+						 /** 
+						  * icon EMAIL 
+						  */	
+							case $key == 'email':
+
+								$label = __( 'Your Email address or other contact URL', 'sfmsb_domain');	
 								
-							$label = __( $item['name'] . ' URL', 'sfmsb_domain');
-							$value = esc_url( $instance['url_' . $key] );
+								$instance['url_' . $key] = str_replace('mailto:', '', $instance['url_' . $key]);
+								
+								if( filter_var( $instance['url_' . $key], FILTER_VALIDATE_EMAIL ) ){
+										
+									$value = esc_attr( $instance['url_' . $key] );	
+								} else {
+								
+									$value = esc_url( $instance['url_' . $key] );
+								} // if
+
+							break;
+
+						 /** 
+						  * icon SKYPE 
+						  */
+							
+							case $key == 'skype':	
+
+							$label = __( 'Enter your SKYPE username', 'sfmsb_domain');	
+							$instance['url_' . $key] = str_replace('skype:', '', $instance['url_' . $key]);
+							$instance['url_' . $key] = str_replace('?call', '', $instance['url_' . $key]);
+
+							$value = esc_attr( $instance['url_' . $key] );
+
+							break;
+
+						 /** 
+						  * icon DEFAULT 
+						  */	
+							default:
+
+								$label = __( $item['name'] . ' URL', 'sfmsb_domain');
+								$value = esc_url( $instance['url_' . $key] );
+
+							break;
+
 						}
 
 			?>
@@ -293,22 +319,49 @@ class Sfmsb_Widget extends WP_Widget {
 			
 			foreach( $this->available_buttons as $key => $item ){
 					
-				if( $key == 'email' ) {
-						
-					$new_instance['url_' . $key] = str_replace('mailto:', '', $new_instance['url_' . $key]);
-					
-					if( filter_var( $new_instance['url_' . $key], FILTER_VALIDATE_EMAIL ) ){
-						
-						$value = esc_attr( $new_instance['url_' . $key] );
-					} else {
-						
-						$value = esc_url( $new_instance['url_' . $key] );
-					} // if
+				switch( TRUE ) {
+					/*
+	   				 * icon EMAIL
+					 */
 
-				} else {
+					case $key == 'email' :
+
+						$new_instance['url_' . $key] = str_replace('mailto:', '', $new_instance['url_' . $key]);
 					
-					$value = esc_url( $new_instance['url_' . $key] );
+						if( filter_var( $new_instance['url_' . $key], FILTER_VALIDATE_EMAIL ) ){
+							
+							$value = esc_attr( $new_instance['url_' . $key] );
+						} else {
+							
+							$value = esc_url( $new_instance['url_' . $key] );
+						} // if
+
+					break;
+
+					/*
+	   				 * icon SKYPE
+					 */
+
+					case $key == 'skype' :
+						
+						$new_instance['url_' . $key] = str_replace('skype:', '', $new_instance['url_' . $key]);
+						$new_instance['url_' . $key] = str_replace('?call', '', $new_instance['url_' . $key]);
+
+						$value = esc_attr( $new_instance['url_' . $key] );
+						
+					break;
+
+					/*
+	   				 * icon DEFAULT
+					 */
+
+					default: 
+						$value = esc_url( $new_instance['url_' . $key] );
+					break;
+
 				}
+
+				
 					
 				$instance['url_' . $key] 	 = $value;
 				@$instance['enable_' . $key]  = absint($new_instance['enable_' . $key]);
@@ -381,21 +434,36 @@ class Sfmsb_Widget extends WP_Widget {
 					
 					foreach ( SFMSB::instance()->available_buttons as $key => $item ) {
 						
-						if( isset( $instance['url_' . $key] ) &&  
-							$instance['url_' . $key] != '' 
-						  ) {
+						if( isset( $instance['url_' . $key] ) &&  $instance['url_' . $key] != '' ) {
 							
 							// color (default or custom)
 							( $instance['color'] == '') ? $color = '#' . $item['color'] : $color = $instance['color'];
 							
-							//url (default or email)
-							if( $key == 'email' && 
-								filter_var( $instance['url_' . $key], FILTER_VALIDATE_EMAIL ) 
-							) {
-								$href = 'mailto:' . esc_attr($instance['url_' . $key]);
-							} else {
-								$href = esc_url($instance['url_' . $key]);
+							switch( TRUE ) {
+
+							/** 
+							  * icon EMAIL
+							  */		
+							  case $key == 'email' && filter_var( $instance['url_' . $key], FILTER_VALIDATE_EMAIL):
+							  	$href = 'mailto:' . esc_attr($instance['url_' . $key]);
+							  break;	
+
+							 /** 
+							  * icon SKYPE 
+							  */	
+							 case $key == 'skype':
+							 $href = 'skype:' . esc_attr($instance['url_' . $key]) . '?call';
+							  break;
+
+							 /** 
+							  * icon DEFAULT
+							  */	
+							  default:
+							  	$href = esc_url($instance['url_' . $key]);
+							  break;	
 							}
+
+
 							
 							echo '<a target="_blank" href="' . $href . '">';
 								echo '<span class="sfmsb-icon-'. $key .' '. $instance['style'] .'"'; 
