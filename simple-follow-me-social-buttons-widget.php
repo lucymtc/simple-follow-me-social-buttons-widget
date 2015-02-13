@@ -2,7 +2,7 @@
 /**
 Plugin Name: Simple Follow Me Social Buttons Widget
 Description: Widget to add some of the most popular follow me social buttons. Retina ready.
-Version: 	 3.1
+Version: 	 3.2
 Author: 	 Lucy Tomás
 Author URI:  https://wordpress.org/support/profile/lucymtc
 License: 	 GPLv2
@@ -116,7 +116,7 @@ final class SFMSB {
 		  	if( !defined('SFMSB_PLUGIN_DIR') )  	{ define('SFMSB_PLUGIN_DIR', plugin_dir_path( __FILE__ )); }
 			if( !defined('SFMSB_PLUGIN_URL') )  	{ define('SFMSB_PLUGIN_URL', plugin_dir_url( __FILE__ ));  }
 			if( !defined('SFMSB_PLUGIN_FILE') ) 	{ define('SFMSB_PLUGIN_FILE',  __FILE__ );  }
-			if( !defined('SFMSB_PLUGIN_VERSION') )  { define('SFMSB_PLUGIN_VERSION', '3.1');  } 
+			if( !defined('SFMSB_PLUGIN_VERSION') )  { define('SFMSB_PLUGIN_VERSION', '3.2');  } 
 			
 		  }
 		  
@@ -187,7 +187,10 @@ final class SFMSB {
 											 'ravelry'		=> array( 'name' => 'Ravelry',		'color' => 'de4d7d' ),
 											 'issuu'		=> array( 'name' => 'ISSUU',		'color' => 'ec8569' ),
 											 'etsy'			=> array( 'name' => 'Etsy',			'color' => 'd97850' ),
-											 'anobii'		=> array( 'name' => 'ANOBII',		'color' => 'f4995d' )
+											 'anobii'		=> array( 'name' => 'ANOBII',		'color' => 'f4995d' ),
+											 'myspace'		=> array( 'name' => 'Myspace',		'color' => '717272' ),
+											 'blogconnect'	=> array( 'name' => 'Blog-Connect',	'color' => '717272' ),
+											 'weibo'		=> array( 'name' => 'Weibo',		'color' => 'd73e3e' )
 											 );
 			
 		  }
