@@ -194,7 +194,7 @@ class Sfmsb_Widget extends WP_Widget {
 					</div>
 			
 			<?php } // foreach ?>
-				<div class="clearfix"></div>
+				<div class="sfmsb-clearfix"></div>
 				
 				<div class="sfmsb-initial-message">
 						<?php _e('Click on any icon to input the url and enable it. Leave the input blank to disable the icon.', 'sfmsb_domain');?>
@@ -479,7 +479,7 @@ class Sfmsb_Widget extends WP_Widget {
 					// ** do_action
 					do_action('sfmsb_widget_after_links');
 				
-				echo '<div class="clearfix"></div></div>';
+				echo '<div class="sfmsb-clearfix"></div></div>';
 				
 				// ** do_action
 				do_action('sfmsb_widget_pos_buttons');
