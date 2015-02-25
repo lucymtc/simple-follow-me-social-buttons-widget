@@ -1,14 +1,14 @@
 /* @group clearfix */
 
-.clearfix:after {
+.sfmsb-clearfix:after {
 	visibility: hidden;
 	display: block;
 	content: "";
 	clear: both;
 	height: 0;
 	}
-* html .clearfix             { zoom: 1; } /* IE6 */
-*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+* html .sfmsb-clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .sfmsb-clearfix { zoom: 1; } /* IE7 */
 
 
 /* @end */
