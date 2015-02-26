@@ -23,14 +23,14 @@
 	margin-bottom: 5px;
 }
 
-.sfmsb-follow-social-buttons.vertical a{
+.sfmsb-follow-social-buttons.sfmsb-vertical a{
 	float: none;
 } 
 
 /* Smartphones  */
 /*@media only screen and (max-width : 480px) {
 	
-	.sfmsb-follow-social-buttons.vertical a{
+	.sfmsb-follow-social-buttons.sfmsb-vertical a{
 		float: left;
 	} 
 

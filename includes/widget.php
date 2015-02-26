@@ -175,7 +175,7 @@ class Sfmsb_Widget extends WP_Widget {
 			?>
 			
 					<a href="javascript:void(0);" <?php echo ( $value == '' ) ? 'class="sfmsb-disable"' : 'class="sfmsb-enable"'; ?>>
-						<span class="sfmsb-icon-<?php echo $key .' '. $instance['style'] ?>" style="color: <?php echo $color ?>"></span>
+						<span class="sfmsb-icon-<?php echo $key .' sfmsb-'. $instance['style'] ?>" style="color: <?php echo $color ?>"></span>
 					</a>
 					
 					<div class="sfmsb-input-block sfmsb-<?php echo $key ?>">
@@ -400,7 +400,7 @@ class Sfmsb_Widget extends WP_Widget {
 				do_action('sfmsb_widget_pre_buttons');
 		
 				echo '<div';
-				echo ' class="sfmsb-follow-social-buttons sfmsb-' . $instance['position'] . ' sfmsb-' . $instance['style'] . ' ' . $instance['size'] . ' ' . $instance['layout']   . '"';
+				echo ' class="sfmsb-follow-social-buttons sfmsb-' . $instance['position'] . ' sfmsb-' . $instance['style'] . ' ' . $instance['size'] . ' sfmsb-' . $instance['layout']   . '"';
 				
 				if( $instance['hover_color'] ) {
 					echo ' data-hover="'. $instance['hover_color'] .'"';
@@ -466,7 +466,7 @@ class Sfmsb_Widget extends WP_Widget {
 
 							
 							echo '<a target="_blank" href="' . $href . '">';
-								echo '<span class="sfmsb-icon-'. $key .' '. $instance['style'] .'"'; 
+								echo '<span class="sfmsb-icon-'. $key .' sfmsb-'. $instance['style'] .'"'; 
 								echo ' style="color:' . $color . ';font-size:'. $instance['size'] .'px;"';
 								echo ' data-color="'. $color .'"';
 								echo '></span>';
