@@ -1,7 +1,7 @@
 Simple Follow Me Social Buttons Widget for WordPress
 ========================================
 - Requires at least: 3.8
-- Tested up to: 4.1.1
+- Tested up to: 4.2
 - Stable version: 3.3.1
 - Donate link: http://wptips.me/simple-follow-social-buttons-widget/
 - License: GPLv2 or later
