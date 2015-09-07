@@ -59,13 +59,6 @@ function init (){
 		jQuery( widget + ' .sfmsb-input-block' ).css( 'display', 'none' );
 		jQuery( widget + ' .sfmsb-input-block.sfmsb-' + icon_name ).css( 'display', 'block' );
 
-		if( icon_name == 'specificfeeds' ) {
-
-			jQuery( widget + ' .sfmsb-icons-container').addClass('extra-message');
-			jQuery( widget + ' p#sfmsb-specififeeds-message').css('display', 'inline');
-	
-		}
-							
 	});
 	
 	//** Input events

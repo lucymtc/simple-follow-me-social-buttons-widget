@@ -104,39 +104,6 @@ a.sfmsb-pending{
 	box-shadow: 0 0 0 3px #E8ED45;
 }
 
-p#sfmsb-specififeeds-message{
-	font-size: 10px;
-	display:none;
-}
-
-.updated.sfmsb-specificfeeds-notice {
-	position:relative;
-}
-
-.updated.sfmsb-specificfeeds-notice p{
-	display:table;
-}
-
-.updated.sfmsb-specificfeeds-notice span{
-	display:table-cell;
-	vertical-align: middle;
-	padding:0px 10px 0px 0px;
-	
-}
-
-.updated.sfmsb-specificfeeds-notice {
-	border-color: #0c459b ;
-	overflow:hidden;
-}
-
-.updated.sfmsb-specificfeeds-notice .sfmsb-icon-specificfeeds{
-	color:#d68678;
-	font-size: 30px;
-	margin-right:5px;
-}
-
-.sfmsb-icon-close:before { content: "\e643"; }
-.sfmsb-icon-close{ font-size: 17px; position:absolute; top: 5px; right:5px; color:#0c459b;}
 
 /* @end */
 

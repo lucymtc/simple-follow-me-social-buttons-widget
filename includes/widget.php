@@ -35,17 +35,9 @@ class Sfmsb_Widget extends WP_Widget {
 			$existing_settings = get_option('widget_sfmsb_settings');
 			
 			foreach ( SFMSB::instance()->available_buttons as $key => $item ) {
-					
-				if( $key == 'specificfeeds' && empty( $existing_settings ) ) {
-					
-					$this->defaults['enable_' . $key] = 1;
-					$this->defaults['url_' . $key] 	  = 'http://www.specificfeeds.com/follow';	
-					
-				} else {
-
-					$this->defaults['enable_' . $key] = 0;
-					$this->defaults['url_' . $key] 	  = '';	
-				}
+			
+				$this->defaults['enable_' . $key] = 0;
+				$this->defaults['url_' . $key] 	  = '';	
 			}
 			
 		
@@ -188,8 +180,6 @@ class Sfmsb_Widget extends WP_Widget {
 					    	   type="text" 
 					    	   class=""
 							   value="<?php echo $value ?>"/>
-						
-						<p id="sfmsb-specififeeds-message"><?php _e('Leave <a href="http://www.specificfeeds.com/follow" target="_blank">http://www.specificfeeds.com/follow</a> to allow your visitors to subscribe to your blog by email. 100% free <a href="http://www.specificfeeds.com/rss" target="_blank">(learn more)</a>');?>	</p>
 						
 					</div>
 			
