@@ -2,7 +2,7 @@
 /**
 Plugin Name: Simple Follow Me Social Buttons Widget
 Description: Widget to add some of the most popular follow me social buttons. Retina ready.
-Version: 	 3.3.1
+Version: 	 3.3.2
 Author: 	 Lucy Tomás
 Author URI:  https://wordpress.org/support/profile/lucymtc
 License: 	 GPLv2
@@ -70,6 +70,8 @@ final class SFMSB {
 		 */
 
 		 private function __construct () {
+
+		 	register_activation_hook( __FILE__, array($this, 'activation') );
 		 
 			$this->default_options = array();
 			
@@ -78,17 +80,12 @@ final class SFMSB {
 			if( is_admin() ) {
 
 				add_action( 'admin_enqueue_scripts', array('Sfmsb_Widget', 'add_admin_scripts') );
-				add_action( 'admin_enqueue_scripts', array('Sfmsb_Admin', 'add_admin_scripts') );
-				add_action( 'admin_notices', 		 array('SFMSB', 'specificfeeds_notice') );
-
+				
 			} else{
 				
 				add_action( 'wp_enqueue_scripts', array('Sfmsb_Widget', 'add_scripts') );
 			}
 
-			add_action('wp_ajax_sfmsb_notice_viewed', array('SFMSB', 'specificfeeds_save_notice_viewed'));
-			add_action('wp_ajax_nopriv_sfmsb_notice_viewed', array('SFMSB', 'specificfeeds_save_notice_viewed'));
-			
 		 }
 		 
 		
@@ -101,8 +98,28 @@ final class SFMSB {
 		  private function includes () {
 		  	
 			require_once( SFMSB_PLUGIN_DIR . '/includes/widget.php');
-			require_once( SFMSB_PLUGIN_DIR . '/includes/admin.php');
-		
+			
+		 }
+
+		/**
+		  * activation
+		  * 
+		  * @since 3.3.2
+		  */
+
+		 public function activation() {
+
+		 	$installed_version = get_option( 'sfmsb_version' );
+
+		 	
+		 	if( $installed_version == false || $installed_version < '3.3.2' ) {
+		 		delete_option('sfmsb_specificfeeds_viewed_notice');
+		 	}
+
+		 	if( $installed_version != SFMSB_PLUGIN_VERSION ) {
+		 		update_option( 'sfmsb_version', SFMSB_PLUGIN_VERSION );
+		 	}
+ 	
 		 }
 
 		
@@ -116,7 +133,7 @@ final class SFMSB {
 		  	if( !defined('SFMSB_PLUGIN_DIR') )  	{ define('SFMSB_PLUGIN_DIR', plugin_dir_path( __FILE__ )); }
 			if( !defined('SFMSB_PLUGIN_URL') )  	{ define('SFMSB_PLUGIN_URL', plugin_dir_url( __FILE__ ));  }
 			if( !defined('SFMSB_PLUGIN_FILE') ) 	{ define('SFMSB_PLUGIN_FILE',  __FILE__ );  }
-			if( !defined('SFMSB_PLUGIN_VERSION') )  { define('SFMSB_PLUGIN_VERSION', '3.3.1');  } 
+			if( !defined('SFMSB_PLUGIN_VERSION') )  { define('SFMSB_PLUGIN_VERSION', '3.3.2');  } 
 			
 		  }
 		  
@@ -210,56 +227,7 @@ final class SFMSB {
 			load_plugin_textdomain('sfmsb_domain', false,  dirname( plugin_basename( SFMSB_PLUGIN_FILE ) ) . '/languages/' );	
 	 	}
 
-	 	/**
-	 	 * specificfeeds_notice
-	 	 * displays a notice to inform specificfeeds icon has been added 
-	 	 *
-	 	 * @since 2.3
-	 	 */
-
-	 	public static function specificfeeds_notice() {
-	 	
-	 		$option = get_option('sfmsb_specificfeeds_viewed_notice');
-
-	 		if( empty($option ) ) {
-	 	?>
-			    <div class="updated sfmsb-specificfeeds-notice">
-			    	
-			        <p>
-			        	<span class="sfmsb-icon-specificfeeds square"></span>
-			        	<span class="sfmsb-icon-specificfeeds circle"></span>
-			        	<span><?php _e( '<strong>Simple Follow Me Social Buttons Widget</strong> has included <a href="http://www.specificfeeds.com"><strong>SpecificFeeds.com</strong></a> icon. You still don\'t know about SpecificFeeds? <a href="http://www.specificfeeds.com/rss">Learn more from here</a>, it\'s 100% FREE.', 'sfmsb_domain' ); ?></span>
-			        </p>
-
-			        <a href="javascript:void(0);" id="sfmsb-specificfeeds-close"><span class="sfmsb-icon-close"></span></a>
-			    </div>
-    	<?php	
-    		}// if ! option
-	 	}
-
-	 	/**
-	 	 * specificfeeds_save_notice_viewed
-	 	 * saves option to indicate that the notice has been closed to not show again
-		 *	
-	 	 * @since 2.3
-	 	 */
-
-	 	public static function specificfeeds_save_notice_viewed(){
-	 		
-			
-	 		if( isset($_POST['specificfeeds_viewed_notice']) && 
-	 			isset($_POST['specificfeeds_viewed_notice']) == 1 && 
-	 			is_user_logged_in()) {
-
-	 			update_option('sfmsb_specificfeeds_viewed_notice', 1);
-	 			echo 'success';
-
-	 		} 
-
-	 		die();
-	 	}
-		
-		
+	 
 }// class
 	
 	
