@@ -7,35 +7,44 @@
 
 jQuery(document).ready(function($) {
 
-	hover_effect_init();
 
-
-	function hover_effect_init (){
-		
-		$('.sfmsb_widget').each( function(el){
-			
-			var id_widget = $(this).attr('id');
-			var hover_color = $('#' + id_widget + ' .sfmsb-follow-social-buttons').attr('data-hover');
-			
-			if( hover_color && hover_color != 'undefined'){
-				
-					$('#' + id_widget + ' a').hover( 
-						function(){
-							$(this).find('span').css('color', hover_color);
-						}, 
-						function(){
-							$(this).find('span').css('color', $(this).find('span').attr('data-color'));
-						} 
-					);
-
-			}
-
-
-		});
-		
-	}
+	var sfmsb_widget = new sfmsb_front();
+	sfmsb_widget.init_icons();
 	
 });
+
+
+
+// Closure
+
+function sfmsb_front (){
+	
+	return {
+
+		/**
+		 * init_icons
+		 * inits hover color effect
+		 */
+
+		init_icons : function () {
+
+			jQuery('.sfmsb-follow-social-buttons a').hover( 
+
+				function(){
+					var hover_color = jQuery(this).parent('.sfmsb-follow-social-buttons').attr('data-hover');
+					jQuery(this).find('span').css('color', hover_color);
+				}, 
+				function(){
+					jQuery(this).find('span').css('color', jQuery(this).find('span').attr('data-color'));
+				} 
+
+			);
+
+		}
+
+	} // 
+
+}
 
 
  
