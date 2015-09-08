@@ -120,6 +120,8 @@ Other plugins that you may have interest:
 * Fixed issue with hover color effect on some themes
 * Removed Specificfeeds.com default activation and admin notice.
 * Save plugin version into database for track the current installed version.
+* Changed icons defualt colors
+* Fix js to prevent conflicts with other plugins
 
 = 3.3.1 =
 * CSS fix. Conflicting with some themes.

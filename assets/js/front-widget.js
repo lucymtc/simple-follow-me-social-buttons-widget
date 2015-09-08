@@ -8,7 +8,7 @@
 jQuery(document).ready(function($) {
 
 
-	var sfmsb_widget = new sfmsb();
+	var sfmsb_widget = new sfmsb_front();
 	sfmsb_widget.init_icons();
 	
 });
@@ -17,8 +17,8 @@ jQuery(document).ready(function($) {
 
 // Closure
 
-function sfmsb (){
-
+function sfmsb_front (){
+	
 	return {
 
 		/**
