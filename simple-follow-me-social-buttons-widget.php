@@ -2,7 +2,7 @@
 /**
 Plugin Name: Simple Follow Me Social Buttons Widget
 Description: Widget to add some of the most popular follow me social buttons. Retina ready.
-Version: 	 3.3.2
+Version: 	 3.3.3
 Author: 	 Lucy Tomás
 Author URI:  https://wordpress.org/support/profile/lucymtc
 License: 	 GPLv2
@@ -40,6 +40,8 @@ final class SFMSB {
 		private static $instance = null;
 	
 		public $default_options = array();
+		public $plugin_vesion 	= null;
+
 		
 		/**
 		 * Instance
@@ -58,6 +60,7 @@ final class SFMSB {
 				self::$instance->includes();
 				self::$instance->load_textdomain();
 				self::$instance->variables();
+				self::$instance->set_plugin_version();
 			}
 			
 			return self::$instance;
@@ -71,9 +74,7 @@ final class SFMSB {
 
 		 private function __construct () {
 
-		 	register_activation_hook( __FILE__, array($this, 'activation') );
-		 
-			$this->default_options = array();
+		 	$this->default_options = array();
 			
 			add_action( 'widgets_init', array('Sfmsb_Widget', 'register_widgets') );
 			
@@ -102,22 +103,25 @@ final class SFMSB {
 		 }
 
 		/**
-		  * activation
+		  * set_plugin_version
 		  * 
-		  * @since 3.3.2
+		  * @since 3.3.3
 		  */
 
-		 public function activation() {
+		 public function set_plugin_version() {
 
-		 	$installed_version = get_option( 'sfmsb_version' );
+		 	$this->plugin_vesion = get_option( 'sfmsb_version' );
 
 		 	
-		 	if( $installed_version == false || $installed_version < '3.3.2' ) {
+		 	if( $this->plugin_vesion == false || $this->plugin_vesion < '3.3.2' ) {
 		 		delete_option('sfmsb_specificfeeds_viewed_notice');
 		 	}
 
-		 	if( $installed_version != SFMSB_PLUGIN_VERSION ) {
+		 	if( $this->plugin_vesion != SFMSB_PLUGIN_VERSION ) {
+
 		 		update_option( 'sfmsb_version', SFMSB_PLUGIN_VERSION );
+		 		$this->plugin_vesion = SFMSB_PLUGIN_VERSION;
+
 		 	}
  	
 		 }
@@ -133,7 +137,7 @@ final class SFMSB {
 		  	if( !defined('SFMSB_PLUGIN_DIR') )  	{ define('SFMSB_PLUGIN_DIR', plugin_dir_path( __FILE__ )); }
 			if( !defined('SFMSB_PLUGIN_URL') )  	{ define('SFMSB_PLUGIN_URL', plugin_dir_url( __FILE__ ));  }
 			if( !defined('SFMSB_PLUGIN_FILE') ) 	{ define('SFMSB_PLUGIN_FILE',  __FILE__ );  }
-			if( !defined('SFMSB_PLUGIN_VERSION') )  { define('SFMSB_PLUGIN_VERSION', '3.3.2');  } 
+			if( !defined('SFMSB_PLUGIN_VERSION') )  { define('SFMSB_PLUGIN_VERSION', '3.3.3');  } 
 			
 		  }
 		  
