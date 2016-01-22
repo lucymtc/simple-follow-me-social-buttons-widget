@@ -37,7 +37,7 @@ div.widget[id*=_sfmsb] div.row p{
 }
 
 div.widget[id*=_sfmsb] p{
-	
+
 	margin: 0 20px 10px 0px;
 }
 
@@ -46,7 +46,7 @@ div.sfmsb-icons-container.dark a{
 	background-color: #000000;
 }
 
-div.sfmsb-icons-container a[class^="sfmsb-"], 
+div.sfmsb-icons-container a[class^="sfmsb-"],
 div.sfmsb-icons-container a[class*=" sfmsb-"]{
 	text-decoration:none;
 	margin:0px 8px 10px 8px;
@@ -106,4 +106,3 @@ a.sfmsb-pending{
 
 
 /* @end */
-
