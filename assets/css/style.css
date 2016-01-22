@@ -25,14 +25,14 @@
 
 .sfmsb-follow-social-buttons.sfmsb-vertical a{
 	float: none;
-} 
+}
 
 /* Smartphones  */
 /*@media only screen and (max-width : 480px) {
-	
+
 	.sfmsb-follow-social-buttons.sfmsb-vertical a{
 		float: left;
-	} 
+	}
 
 }*/
 
@@ -43,13 +43,13 @@
 
 .sfmsb-follow-social-buttons.sfmsb-float .sfmsb-text,
 .sfmsb-follow-social-buttons.sfmsb-float a{
-	
+
 	padding: 0 5px 0 5px;
 	margin-right: 0;
 }
 
 .sfmsb-follow-social-buttons.sfmsb-under a{
-	margin-right: 10px;	
+	margin-right: 10px;
 }
 
 .sfmsb-follow-social-buttons a,
@@ -58,5 +58,3 @@
 }
 
 /* @end */
-
-

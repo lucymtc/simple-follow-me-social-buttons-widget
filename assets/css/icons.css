@@ -1,7 +1,7 @@
 
-/* 
-   Added base64 enconding to resolve issue of icons not displaying for 
-   some sites with charset encoding mismatch 
+/*
+   Added base64 enconding to resolve issue of icons not displaying for
+   some sites with charset encoding mismatch
  */
 
 @font-face {
@@ -179,7 +179,7 @@
 .sfmsb-icon-tastespotting.sfmsb-square:before { content: "\e667"; }
 
 .sfmsb-icon-tripadvisor.sfmsb-circle:before 	{ content: "\e64b"; }
-.sfmsb-icon-tripadvisor.sfmsb-square:before 	{ content: "\e656"; }	
+.sfmsb-icon-tripadvisor.sfmsb-square:before 	{ content: "\e656"; }
 
 .sfmsb-icon-scoopit.sfmsb-circle:before 	  	{ content: "\e634"; }
 .sfmsb-icon-scoopit.sfmsb-square:before 	  	{ content: "\e63a"; }

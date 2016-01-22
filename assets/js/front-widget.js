@@ -10,7 +10,7 @@ jQuery(document).ready(function($) {
 
 	var sfmsb_widget = new sfmsb_front();
 	sfmsb_widget.init_icons();
-	
+
 });
 
 
@@ -18,7 +18,7 @@ jQuery(document).ready(function($) {
 // Closure
 
 function sfmsb_front (){
-	
+
 	return {
 
 		/**
@@ -28,24 +28,20 @@ function sfmsb_front (){
 
 		init_icons : function () {
 
-			jQuery('.sfmsb-follow-social-buttons a').hover( 
+			jQuery('.sfmsb-follow-social-buttons a').hover(
 
 				function(){
 					var hover_color = jQuery(this).parent('.sfmsb-follow-social-buttons').attr('data-hover');
 					jQuery(this).find('span').css('color', hover_color);
-				}, 
+				},
 				function(){
 					jQuery(this).find('span').css('color', jQuery(this).find('span').attr('data-color'));
-				} 
+				}
 
 			);
 
 		}
 
-	} // 
+	} //
 
 }
-
-
- 
-

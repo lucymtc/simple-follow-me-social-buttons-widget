@@ -1,14 +1,14 @@
 /**
  * widget scripts
  * author Lucy Tomás
- * @since 1.0 
+ * @since 1.0
  */
 
 jQuery(document).ajaxSuccess(function(e, xhr, settings) {
-  	
+
   	var sfmsb_form = new sfmsb();
   	sfmsb_form.init();
-  
+
 });
 
 jQuery(document).ready(function($) {
@@ -24,7 +24,7 @@ function sfmsb (){
 
 	function get_random_id(){
 
-		var num = Math.floor((Math.random() * 999) + 1); 
+		var num = Math.floor((Math.random() * 999) + 1);
 		var id  = 'sfmsb-' + num;
 
 		return id;
@@ -45,7 +45,7 @@ function sfmsb (){
 
 			//** Icon events
 			jQuery( '.sfmsb-icons-container a.sfmsb-disable, .sfmsb-icons-container a.sfmsb-enable' ).on( 'click', function( event, ui ){
-				
+
 				jQuery('.sfmsb-icons-container').removeClass('extra-message');
 				jQuery('p#sfmsb-specififeeds-message').css('display', 'none');
 
@@ -62,19 +62,19 @@ function sfmsb (){
 
 				if( widget == '#undefined') {
 
-					widget = '#' + jQuery( this ).closest( '.sfmsb-icons-container ' ).attr( 'id' );	
+					widget = '#' + jQuery( this ).closest( '.sfmsb-icons-container ' ).attr( 'id' );
 
 						if( widget == '#undefined') {
-						
+
 							widget = get_random_id();
 							jQuery( this ).closest( '.sfmsb-icons-container ' ).attr('id', widget);
 
-							widget = '#' + widget;	
+							widget = '#' + widget;
 						}
 
 				}
 
-				
+
 				jQuery( widget + ' .sfmsb-initial-message' ).css( 'display', 'none' );
 				jQuery( widget + ' .sfmsb-input-block' ).css( 'display', 'none' );
 				jQuery( widget + ' .sfmsb-input-block.sfmsb-' + icon_name ).css( 'display', 'block' );
@@ -83,14 +83,14 @@ function sfmsb (){
 
 			//** Input events
 			jQuery( '.sfmsb-icons-container input[type=text]' ).keyup( function() {
-						
+
 					var tmp = jQuery( this ).attr( 'id' ).split( '-' );
 					tmp 	= tmp[3].split( '_' );
-						
+
 					var icon_name = tmp[1];
 					var widget 	  = '#' + jQuery( this ).closest( '.widget' ).attr( 'id' );
 					var aTag      = jQuery( widget + ' .sfmsb-icon-' + icon_name ).closest( 'a' );
-						 
+
 					if( jQuery(this).val() == '' ){
 
 						aTag.attr( 'class', 'sfmsb-disable' );
@@ -103,6 +103,6 @@ function sfmsb (){
 
 		}
 
-	} // 
+	} //
 
 }
