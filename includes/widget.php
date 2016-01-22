@@ -460,7 +460,7 @@ class Sfmsb_Widget extends WP_Widget {
 							$icon .=	'></span>';
 							$icon .= '</a>';
 
-							echo apply_filters( 'sfmsbw_widget_icon', $icon, $instance );
+							echo apply_filters( 'sfmsbw_widget_icon', $icon, $key, $instance );
 
 						}// if enabled
 
