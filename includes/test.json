@@ -1,0 +1,80 @@
+,
+	"contact": {
+		"skype": { "name" : "Skype",		 "color" : "00aff0" },
+		"email": { "name" : "Email",      	 "color" : "2758a6" }
+	},
+	"buy-sell": {
+		"etsy": { "name" : "Etsy",		 "color" : "f37020" },
+		"dawanda": { "name" : "Dawanda",		 "color" : "c00e0e" },
+		"notonthehighstreet": { "name" : "notonthehighstreet.com","color" : "0180c4" }
+	},
+	"user-reviews": {
+		"yelp": { "name" : "Yelp", 		 "color" : "d51600" },
+		"foursquare": { "name" : "Foursquare",	 "color" : "f84676" },
+		"tripadvisor"	: { "name" : "Tripadvisor",	 "color" : "4c8a37" }
+	},
+	"video-photography": {
+		"pinterest": { "name" : "Pinterest",  	 "color" : "cb2027" },
+		"instagram": { "name" : "Instagram",
+		"flickr": { "name" : "Flickr", 	 	 "color" : "ff0084" },  	 "color" : "b09375" },
+ 		"trover": { "name" : "Trover", 		 "color" : "f1b731" },
+ 		"500px": { "name" : "500px.com",	 "color" : "222222" },
+ 		"picasa": { "name" : "Picasa",		 "color" : "9762ad" },
+ 		"eyeem": { "name" : "EyeEm",		 "color" : "101010" },
+ 		"fotocommunity": { "name" : "fotocommunity","color" : "101010" },
+ 		"youtube": { "name" : "Youtube",    	 "color" : "e12b28" },
+ 		"vimeo": { "name" : "Vimeo",      	 "color" : "1ab7ea" },
+ 		"vine": { "name" : "Vine", 		 "color" : "00bd8e" }
+	},
+	"developers": {
+		"github": { "name" : "Github",     	 "color" : "101010" },
+		"stackoverflow": { "name" : "Stackoverflow","color" : "f37a21" }
+	},
+	"music-books-films-radio-games": {
+		"goodreads": { "name" : "GoodReads",  	 "color" : "693d17" },
+		"soundcloud": { "name" : "SoundCloud", 	 "color" : "f6a46a" },
+ 		"itunes": { "name" : "iTunes", 	 	 "color" : "d545e3" },
+ 		"lastfm": { "name" : "Last.fm", 	 "color" : "d51007" },
+ 		"rdio": { "name" : "Rdio",		 "color" : "007dc3" },
+ 		"stitcher": { "name" : "Stitcher",	 "color" : "101010" },
+ 		"twitch": { "name" : "Twitch",		 "color" : "6441a5" },
+ 		"tunein": { "name" : "Tunein",		 "color" : "2cb6a8" },
+ 		"steam": { "name" : "Steam",		 "color" : "171a21" },
+ 		"scribd": { "name" : "Scribd",		 "color" : "1a7bba" },
+ 		"anobii": { "name" : "ANOBII",		 "color" : "f15614" }
+	},
+	"feeders-content-readers": {
+		"reddit": { "name" : "Reddit",		 "color" : "cee3f8" },
+		"feed": { "name" : "Rss Feed", "color" : "ffa500" },
+		"specificfeeds": { "name" : "SpecificFeeds","color" : "e52e13" },
+		"bloglovin": { "name" : "Bloglovin",  	 "color" : "4bd1fa" },
+		"tumblr": { "name" : "Tumblr", 	 	 "color" : "36465d" },
+		"hubpages": { "name" : "HubPages", 	 "color" : "222222" },
+		"feedly": { "name" : "Feedly", 	 	 "color" : "87bf31" },
+		"stumbleupon": { "name" : "Stumbleupon",	 "color" : "eb4924" },
+		"scoopit": { "name" : "Scoop.it",	 "color" : "6cab36" }
+	},
+	"bloging": {
+		"wordpress": { "name" : "WordPress",  	 "color" : "3274ae" },
+		"blogger": { "name" : "Blogger",		 "color" : "ff6600" },
+		"blogconnect": { "name" : "Blog-Connect", "color" : "101010" }
+	},
+	"art-design": {
+		"deviantart": { "name" : "Deviantart", 	 "color" : "4c5e51" },
+		"behance": { "name" : "Behance", 	 "color" : "333333" },
+		"dribbble": { "name" : "Dribbble",	 "color" : "e14c86" },
+		"ello": { "name" : "Ello.co",		 "color" : "000000" },
+		"openclipart": { "name" : "Openclipart",	 "color" : "4e9a06" }
+	},
+	"cooking": {
+		"canalcocina": { "name" : "CanalCocina",	 "color" : "101010" },
+		"kukers": { "name": "Kukers", "color": "678817" },
+		"tastespotting": { "name": "TasteSpotting", "color": "252525" },
+		"foodgawker": { "name": "Foodgawker", "color": "808285" }
+	},
+	"others": {
+		"remind": { "name" : "Remind", 		 "color" : "36b2ff" },
+		"issuu": { "name" : "ISSUU",		 "color" : "ef5227" },
+		"ravelry": { "name" : "Ravelry",		 "color" : "c84a89" },
+		"slideshare": { "name" : "SlideShare", 	 "color" : "f6931e" }
+	}
