@@ -47,13 +47,9 @@ function init(){
  * @return void
  */
 function enqueue_scripts( $hook ) {
-		// $min = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-		// wp_enqueue_style( 'fif', FIF_PLUGIN_URL . 'assets/css/admin' . $min . '.css', array(), FIF_PLUGIN_VERSION);
-		// wp_enqueue_script( 'fif', FIF_PLUGIN_URL . 'assets/js/app' . $min . '.js', array( 'jquery', 'backbone', 'underscore', 'wp-util' ), FIF_PLUGIN_VERSION, true );
-		// wp_localize_script( 'fif', 'fif', array(
-		// 	'nonce' => wp_create_nonce('fif_search'),
-		// 	'action' => 'fif_search',
-		// ));
+		$min = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+		wp_enqueue_style( 'sfmsb', SFMSB_PLUGIN_URL . 'assets/css/sfmsb' . $min . '.css', array(), SFMSB_PLUGIN_VERSION);
+		wp_enqueue_script( 'sfmsb', SFMSB_PLUGIN_URL . 'assets/js/sfmsb' . $min . '.js', array( 'jquery'), SFMSB_PLUGIN_VERSION, true );
 }
 
 /**

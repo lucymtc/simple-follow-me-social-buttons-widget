@@ -12,11 +12,11 @@ module.exports = function( grunt ) {
 					' * Licensed GPLv2+' +
 					' */\n'
 			},
-			simple_follow_me_social_buttons_widget: {
+			sfmsb: {
 				src: [
-					'assets/js/src/simple_follow_me_social_buttons_widget.js'
+					'assets/js/src/sfmsb.js'
 				],
-				dest: 'assets/js/simple_follow_me_social_buttons_widget.js'
+				dest: 'assets/js/sfmsb.js'
 			}
 		},
 		jshint: {
@@ -40,12 +40,12 @@ module.exports = function( grunt ) {
 					exports: true,
 					module:  false
 				}
-			}		
+			}
 		},
 		uglify: {
 			all: {
 				files: {
-					'assets/js/simple_follow_me_social_buttons_widget.min.js': ['assets/js/simple_follow_me_social_buttons_widget.js']
+					'assets/js/sfmsb.min.js': ['assets/js/sfmsb.js']
 				},
 				options: {
 					banner: '/*! <%= pkg.title %> - v<%= pkg.version %>\n' +
@@ -62,15 +62,15 @@ module.exports = function( grunt ) {
 		test:   {
 			files: ['assets/js/test/**/*.js']
 		},
-		
+
 		sass:   {
 			all: {
 				files: {
-					'assets/css/simple_follow_me_social_buttons_widget.css': 'assets/css/sass/simple_follow_me_social_buttons_widget.scss'
+					'assets/css/sfmsb.css': 'assets/css/sass/sfmsb.scss'
 				}
 			}
 		},
-		
+
 		cssmin: {
 			options: {
 				banner: '/*! <%= pkg.title %> - v<%= pkg.version %>\n' +
@@ -81,16 +81,16 @@ module.exports = function( grunt ) {
 			},
 			minify: {
 				expand: true,
-				
-				cwd: 'assets/css/',				
-				src: ['simple_follow_me_social_buttons_widget.css'],
-				
+
+				cwd: 'assets/css/',
+				src: ['sfmsb.css'],
+
 				dest: 'assets/css/',
 				ext: '.min.css'
 			}
 		},
 		watch:  {
-			
+
 			sass: {
 				files: ['assets/css/sass/*.scss'],
 				tasks: ['sass', 'cssmin'],
@@ -98,7 +98,7 @@ module.exports = function( grunt ) {
 					debounceDelay: 500
 				}
 			},
-			
+
 			scripts: {
 				files: ['assets/js/src/**/*.js', 'assets/js/vendor/**/*.js'],
 				tasks: ['jshint', 'concat', 'uglify'],
@@ -128,40 +128,40 @@ module.exports = function( grunt ) {
 					'!.gitmodules'
 				],
 				dest: 'release/<%= pkg.version %>/'
-			}		
+			}
 		},
 		compress: {
 			main: {
 				options: {
 					mode: 'zip',
-					archive: './release/simple_follow_me_social_buttons_widget.<%= pkg.version %>.zip'
+					archive: './release/simple-follow-me-social-buttons-widget.<%= pkg.version %>.zip'
 				},
 				expand: true,
 				cwd: 'release/<%= pkg.version %>/',
 				src: ['**/*'],
-				dest: 'simple_follow_me_social_buttons_widget/'
-			}		
+				dest: 'simple-follow-me-social-buttons-widget/'
+			}
 		}
 	} );
-	
+
 	// Load other tasks
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
-	
+
 	grunt.loadNpmTasks('grunt-contrib-sass');
-	
+
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 	grunt.loadNpmTasks( 'grunt-contrib-copy' );
 	grunt.loadNpmTasks( 'grunt-contrib-compress' );
-	
+
 	// Default task.
-	
+
 	grunt.registerTask( 'default', ['jshint', 'concat', 'uglify', 'sass', 'cssmin'] );
-	
-	
+
+
 	grunt.registerTask( 'build', ['default', 'clean', 'copy', 'compress'] );
 
 	grunt.util.linefeed = '\n';
