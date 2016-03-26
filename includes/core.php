@@ -2,7 +2,7 @@
 /**
  * Boostrap the plugin
  *
- * @since  2.0.0
+ * @since  3.5.0
  *
  * @package SimpleFollowMeSocial
  */
@@ -68,9 +68,38 @@ function deactivate(){}
  * Returns the list of icons available in the flugin
  * @return array
  */
-function get_all_icons(){
-	$icons = file_get_contents( SFMSB_PLUGIN_INC . '/icons.json');
-	$icons = json_decode( $icons );
+function get_icons(){
 
-	return apply_filters( 'sfmsb_icons', $icons );
+	$file = get_icons_file_path();
+	if( ! file_exists( $file ) ){
+		return new WP_Error( 'error', esc_html_e( 'The file '. $file .' is missing', 'sfmsb' ) );
+	}
+
+	$last_update = filemtime( $file );
+	$cache_key = 'sfmsb_icons_' . $last_update;
+
+	// Get cached result.
+	if( ! $result = wp_cache_get( $cache_key ) ){
+
+		$result = array();
+		$icons_set = file_get_contents( SFMSB_PLUGIN_INC . '/icons.json');
+		$icons_set = json_decode( $icons_set );
+		foreach( $icons_set as $category => $icons ) {
+			$icons = (array) $icons;
+			array_push( $result, $icons);
+		}
+		// To remove the categories keys in the array so we only return icons.
+		$result = array_reduce( $result, 'array_merge', array() );
+		wp_cache_set( $cache_key, $result );
+	}
+
+	return apply_filters( 'sfmsb_icons', $result );
+}
+
+/**
+ * Returns the path to the json file containing the list of icons available in the plugin
+ * @return string
+ */
+function get_icons_file_path(){
+	return apply_filters( 'sfmsb_icons_file_path', SFMSB_PLUGIN_INC . '/icons.json' );
 }

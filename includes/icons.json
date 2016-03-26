@@ -27,8 +27,8 @@
 	},
 	"video-photography": {
 		"pinterest": { "name" : "Pinterest", "color" : "cb2027" },
-		"instagram": { "name" : "Instagram",
-		"flickr": { "name" : "Flickr", "color" : "ff0084" },  	 "color" : "b09375" },
+		"instagram": { "name" : "Instagram", "color" : "b09375" },
+		"flickr": { "name" : "Flickr", "color" : "ff0084" },
  		"trover": { "name" : "Trover", "color" : "f1b731" },
  		"500px": { "name" : "500px.com", "color" : "222222" },
  		"picasa": { "name" : "Picasa", "color" : "9762ad" },
