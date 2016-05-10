@@ -1,2 +1,4 @@
 node_modules
 release
+.sass_cache
+.DS_Store
