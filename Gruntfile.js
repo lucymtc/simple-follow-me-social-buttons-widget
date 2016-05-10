@@ -10,13 +10,24 @@ module.exports = function( grunt ) {
 					' * <%= pkg.homepage %>\n' +
 					' * Copyright (c) <%= grunt.template.today("yyyy") %>;' +
 					' * Licensed GPLv2+' +
-					' */\n'
+					' */\n\n' +
+					' window.sfmsb = window.sfmsb || {};\n\n' +
+					'( function( $, window, undefined ) { \n' +
+					' \'use strict\';' +
+  				' \n\n',
+  			'footer': '\n} )( jQuery, this );'
 			},
-			sfmsb: {
+			simple_follow_me_social_buttons_widget: {
 				src: [
-					'assets/js/src/sfmsb.js'
+					'assets/js/src/mvc/icon.view.js',
+					'assets/js/src/mvc/selection.icon.view.js',
+					'assets/js/src/mvc/icon.model.js',
+					'assets/js/src/mvc/icons.view.js',
+					'assets/js/src/mvc/selection.view.js',
+					'assets/js/src/mvc/icons.collection.js',
+					'assets/js/src/sfmsb-admin.js'
 				],
-				dest: 'assets/js/sfmsb.js'
+				dest: 'assets/js/sfmsb-admin.js'
 			}
 		},
 		jshint: {
@@ -24,28 +35,12 @@ module.exports = function( grunt ) {
 				'Gruntfile.js',
 				'assets/js/src/**/*.js',
 				'assets/js/test/**/*.js'
-			],
-			options: {
-				curly:   true,
-				eqeqeq:  true,
-				immed:   true,
-				latedef: true,
-				newcap:  true,
-				noarg:   true,
-				sub:     true,
-				undef:   true,
-				boss:    true,
-				eqnull:  true,
-				globals: {
-					exports: true,
-					module:  false
-				}
-			}
+			]
 		},
 		uglify: {
 			all: {
 				files: {
-					'assets/js/sfmsb.min.js': ['assets/js/sfmsb.js']
+					'assets/js/sfmsb-admin.min.js': ['assets/js/sfmsb-admin.js']
 				},
 				options: {
 					banner: '/*! <%= pkg.title %> - v<%= pkg.version %>\n' +
@@ -66,7 +61,7 @@ module.exports = function( grunt ) {
 		sass:   {
 			all: {
 				files: {
-					'assets/css/sfmsb.css': 'assets/css/sass/sfmsb.scss'
+					'assets/css/sfmsb-admin.css': 'assets/css/sass/sfmsb-admin.scss'
 				}
 			}
 		},
@@ -83,7 +78,7 @@ module.exports = function( grunt ) {
 				expand: true,
 
 				cwd: 'assets/css/',
-				src: ['sfmsb.css'],
+				src: ['sfmsb-admin.css'],
 
 				dest: 'assets/css/',
 				ext: '.min.css'

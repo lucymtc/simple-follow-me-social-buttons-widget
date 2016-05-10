@@ -41,15 +41,18 @@ if ( ! defined( 'SFMSB_PLUGIN_URL' ) ) { define( 'SFMSB_PLUGIN_URL', plugin_dir_
 if ( ! defined( 'SFMSB_PLUGIN_FILE' ) ) { define( 'SFMSB_PLUGIN_FILE',  __FILE__ );  }
 if ( ! defined( 'SFMSB_PLUGIN_VERSION' ) ) { define( 'SFMSB_PLUGIN_VERSION', '3.5.0' );  }
 if ( ! defined( 'SFMSB_PLUGIN_INC' ) ) { define( 'SFMSB_PLUGIN_INC', SFMSB_PLUGIN_PATH . 'includes/' ); }
+if ( ! defined( 'SFMSB_PLUGIN_TEMPLATES' ) ) { define( 'SFMSB_PLUGIN_TEMPLATES', SFMSB_PLUGIN_PATH . 'templates/' ); }
 
 
-// Admin Setup.
+// Includes
 include_once SFMSB_PLUGIN_INC . 'core.php';
+include_once SFMSB_PLUGIN_INC . 'helper.php';
+include_once SFMSB_PLUGIN_INC . 'widget.php';
 
 // Activation/Deactivation.
 register_activation_hook( __FILE__, '\Lucymtc\SimpleFollowMeSocial\Core\activate' );
 register_deactivation_hook( __FILE__, '\Lucymtc\SimpleFollowMeSocial\Core\deactivate' );
 
-// Core.
+// Setup
 \Lucymtc\SimpleFollowMeSocial\Core\setup();
 

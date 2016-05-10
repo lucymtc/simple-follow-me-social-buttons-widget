@@ -1,0 +1,43 @@
+/**
+ * Simple Follow Me Social Buttons Widget
+ * http://wordpress.org/plugins
+ *
+ * Copyright (c) 2016 Lucy Tomas
+ * Licensed under the GPLv2+ license.
+ *
+ * Admin widget
+ */
+
+.sfmsb-form-wrapper {
+	margin: 20px 0px;
+	position: relative;
+	.icons-panel{
+		min-height: 50px;
+		width: 100%;
+		height: auto;
+		[class^="sfmsb-icon-"] {
+			text-decoration: none;
+			&:before {
+				font-size: 40px;
+			}
+			span {
+				display: none;
+			}
+		}
+	}
+}
+
+.sfmsb-category {
+	background-color: #212121;
+	display: inline-block;
+	padding: 3px 5px 3px 5px;
+	margin: 3px;
+	font-size: 14px;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.icons-panel {
+	//display: none;
+
+}
