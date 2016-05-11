@@ -119,12 +119,12 @@ sfmsb.SelectionView = Backbone.View.extend({
 
 	initialize: function(){
 		this.render();
+		this.listenTo( this.collection, 'add remove', this.addRemove, this );
 	},
 
 	render: function(){
 		this.$el.empty();
 		this.collection.each( this.addOne, this );
-		this.listenTo( this.collection, 'add', this.addRemove, this );
 	},
 
 	/**
@@ -139,12 +139,10 @@ sfmsb.SelectionView = Backbone.View.extend({
 	 * Make sure settings get updated only when render has finished
 	 */
 	addRemove: function(){
-
-		console.log('ppp');
 		this.render();
 		// var self = this;
 		// $.when( self.render() ).done(function() {
-  //      //self.updateSettingsInstance();
+  	//
 		// });
 		//
 	},
@@ -158,23 +156,17 @@ sfmsb.IconsCollection = Backbone.Collection.extend({
 sfmsb.widget = (function(){
 
 	function initialize(){
-		//sfmsb.iconsListsCollections = [];
-		//sfmsb.iconsLists = [];
+		sfmsb.iconsListsCollections = [];
+		sfmsb.iconsLists = [];
 
 		// Each group of icons to select from.
-		// _.each( sfmsbWidget.collections, function( collection, key ){
-		// 	sfmsb.iconsListsCollections[key] = new sfmsb.IconsCollection( collection.icons );
-		// 	sfmsb.iconsLists[key] = new sfmsb.IconsView({
-		// 		collection: sfmsb.iconsListsCollections[key],
-		// 		el: '.sfmsb-group-' + key
-		// 	});
-		// });
-
-			sfmsb.iconsListsCollections = new sfmsb.IconsCollection( sfmsbWidget.collections['social-networking'].icons );
-			sfmsb.iconsLists = new sfmsb.IconsView({
-				collection: sfmsb.iconsListsCollections,
-				el: '.sfmsb-group-' + 'social-networking'
+		_.each( sfmsbWidget.collections, function( collection, key ){
+			sfmsb.iconsListsCollections[key] = new sfmsb.IconsCollection( collection.icons );
+			sfmsb.iconsLists[key] = new sfmsb.IconsView({
+				collection: sfmsb.iconsListsCollections[key],
+				el: '.sfmsb-group-' + key
 			});
+		});
 
 		// Users selection.
 		var selection = {};

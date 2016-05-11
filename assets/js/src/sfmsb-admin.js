@@ -9,23 +9,17 @@
 sfmsb.widget = (function(){
 
 	function initialize(){
-		//sfmsb.iconsListsCollections = [];
-		//sfmsb.iconsLists = [];
+		sfmsb.iconsListsCollections = [];
+		sfmsb.iconsLists = [];
 
 		// Each group of icons to select from.
-		// _.each( sfmsbWidget.collections, function( collection, key ){
-		// 	sfmsb.iconsListsCollections[key] = new sfmsb.IconsCollection( collection.icons );
-		// 	sfmsb.iconsLists[key] = new sfmsb.IconsView({
-		// 		collection: sfmsb.iconsListsCollections[key],
-		// 		el: '.sfmsb-group-' + key
-		// 	});
-		// });
-
-			sfmsb.iconsListsCollections = new sfmsb.IconsCollection( sfmsbWidget.collections['social-networking'].icons );
-			sfmsb.iconsLists = new sfmsb.IconsView({
-				collection: sfmsb.iconsListsCollections,
-				el: '.sfmsb-group-' + 'social-networking'
+		_.each( sfmsbWidget.collections, function( collection, key ){
+			sfmsb.iconsListsCollections[key] = new sfmsb.IconsCollection( collection.icons );
+			sfmsb.iconsLists[key] = new sfmsb.IconsView({
+				collection: sfmsb.iconsListsCollections[key],
+				el: '.sfmsb-group-' + key
 			});
+		});
 
 		// Users selection.
 		var selection = {};

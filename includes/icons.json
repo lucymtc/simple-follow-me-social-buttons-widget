@@ -13,5 +13,117 @@
 			{ "id": "aboutme", "name" : "about.me", "color" : "044a75" },
 			{ "id": "xing", "name" : "Xing.com", "color" : "006567" }
 		]
+	},
+	"contact": {
+		"name": "Contact",
+		"icons": [
+			{ "id": "skype", "name" : "Skype", "color" : "00aff0" },
+			{ "id": "email", "name" : "Email", "color" : "2758a6" }
+		]
+	},
+	"buy-sell": {
+		"name": "Buy/Sell",
+		"icons": [
+			{ "id": "etsy", "name" : "Etsy", "color" : "f37020" },
+			{ "id": "dawanda", "name" : "Dawanda", "color" : "c00e0e" },
+			{ "id": "notonthehighstreet", "name" : "notonthehighstreet.com", "color" : "0180c4" }
+		]
+	},
+	"user-reviews": {
+		"name": "User reviews (travel, restaurants, hotels)",
+		"icons": [
+			{ "id": "yelp", "name" : "Yelp", "color" : "d51600" },
+			{ "id": "foursquare", "name" : "Foursquare", "color" : "f84676" },
+			{ "id": "tripadvisor", "name" : "Tripadvisor", "color" : "4c8a37" }
+		]
+	},
+	"video-photography": {
+		"name": "Video/Photography",
+		"icons": [
+			{ "id": "pinterest", "name" : "Pinterest", "color" : "cb2027" },
+			{ "id": "instagram", "name" : "Instagram", "color" : "b09375" },
+			{ "id": "flickr", "name" : "Flickr", "color" : "ff0084" },
+	 		{ "id": "trover", "name" : "Trover", "color" : "f1b731" },
+	 		{ "id": "500px", "name" : "500px.com", "color" : "222222" },
+	 		{ "id": "picasa", "name" : "Picasa", "color" : "9762ad" },
+	 		{ "id": "eyeem", "name" : "EyeEm", "color" : "101010" },
+	 		{ "id": "fotocommunity", "name" : "fotocommunity", "color" : "101010" },
+	 		{ "id": "youtube", "name" : "Youtube", "color" : "e12b28" },
+	 		{ "id": "vimeo", "name" : "Vimeo", "color" : "1ab7ea" },
+	 		{ "id": "vine", "name" : "Vine", "color" : "00bd8e" }
+ 		]
+	},
+	"developers": {
+		"name": "Developers",
+		"icons": [
+			{ "id": "github", "name" : "Github", "color" : "101010" },
+			{ "id": "stackoverflow", "name" : "Stackoverflow", "color" : "f37a21" }
+		]
+	},
+	"music-books-films-radio-games": {
+		"name": "Music/Books/Films/Radio/Games",
+		"icons": [
+			{ "id": "goodreads", "name" : "GoodReads", "color" : "693d17" },
+			{ "id": "soundcloud", "name" : "SoundCloud", "color" : "f6a46a" },
+	 		{ "id": "itunes", "name" : "iTunes", "color" : "d545e3" },
+	 		{ "id": "lastfm", "name" : "Last.fm", "color" : "d51007" },
+	 		{ "id": "rdio", "name" : "Rdio", "color" : "007dc3" },
+	 		{ "id": "stitcher", "name" : "Stitcher", "color" : "101010" },
+	 		{ "id": "twitch", "name" : "Twitch", "color" : "6441a5" },
+	 		{ "id": "tunein", "name" : "Tunein", "color" : "2cb6a8" },
+	 		{ "id": "steam", "name" : "Steam", "color" : "171a21" },
+	 		{ "id": "scribd", "name" : "Scribd", "color" : "1a7bba" },
+	 		{ "id": "anobii", "name" : "ANOBII", "color" : "f15614" }
+ 		]
+	},
+	"feeders-content-readers": {
+		"name": "Feed Readers/Content/RSS",
+		"icons": [
+			{ "id": "reddit", "name" : "Reddit", "color" : "cee3f8" },
+			{ "id": "feed", "name" : "Rss Feed", "color" : "ffa500" },
+			{ "id": "specificfeeds", "name" : "SpecificFeeds", "color" : "e52e13" },
+			{ "id": "bloglovin", "name" : "Bloglovin", "color" : "4bd1fa" },
+			{ "id": "tumblr", "name" : "Tumblr", "color" : "36465d" },
+			{ "id": "hubpages", "name" : "HubPages", "color" : "222222" },
+			{ "id": "feedly", "name" : "Feedly", "color" : "87bf31" },
+			{ "id": "stumbleupon", "name" : "Stumbleupon", "color" : "eb4924" },
+			{ "id": "scoopit", "name" : "Scoop.it",	"color" : "6cab36" }
+		]
+	},
+	"bloging": {
+		"name": "Bloging",
+		"icons": [
+			{ "id": "wordpress", "name" : "WordPress", "color" : "3274ae" },
+			{ "id": "blogger", "name" : "Blogger", "color" : "ff6600" },
+			{ "id": "blogconnect", "name" : "Blog-Connect", "color" : "101010" }
+		]
+	},
+	"art-design": {
+		"name": "Art/Design",
+		"icons": [
+			{ "id": "deviantart", "name" : "Deviantart", "color" : "4c5e51" },
+			{ "id": "behance", "name" : "Behance", "color" : "333333" },
+			{ "id": "dribbble", "name" : "Dribbble", "color" : "e14c86" },
+			{ "id": "ello", "name" : "Ello.co", "color" : "000000" },
+			{ "id": "openclipart", "name" : "Openclipart", "color" : "4e9a06" }
+		]
+	},
+	"cooking": {
+		"name": "Cooking",
+		"icons": [
+			{ "id": "canalcocina", "name" : "CanalCocina", "color" : "101010" },
+			{ "id": "kukers", "name": "Kukers", "color": "678817" },
+			{ "id": "tastespotting", "name": "TasteSpotting", "color": "252525" },
+			{ "id": "foodgawker", "name": "Foodgawker", "color": "808285" }
+		]
+	},
+	"others": {
+		"name": "Others",
+		"icons": [
+			{ "id": "remind", "name" : "Remind", "color" : "36b2ff" },
+			{ "id": "issuu", "name" : "ISSUU", "color" : "ef5227" },
+			{ "id": "ravelry", "name" : "Ravelry", "color" : "c84a89" },
+			{ "id": "slideshare", "name" : "SlideShare", "color" : "f6931e" }
+		]
 	}
 }
