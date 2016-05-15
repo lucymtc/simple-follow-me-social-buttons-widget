@@ -388,6 +388,8 @@ class Sfmsb_Widget extends WP_Widget {
 			
 				// ** do_action
 				do_action('sfmsb_widget_pre_buttons');
+				
+				if ( !empty( $title ) ) { echo $before_title . $title  . $after_title; };
 		
 				echo '<div';
 				echo ' class="sfmsb-follow-social-buttons sfmsb-' . $instance['position'] . ' sfmsb-' . $instance['style'] . ' ' . $instance['size'] . ' sfmsb-' . $instance['layout']   . '"';
@@ -397,8 +399,6 @@ class Sfmsb_Widget extends WP_Widget {
 				}
 
 				echo '>';
-				
-				if ( !empty( $title ) ) { echo $before_title . $title  . $after_title; };
 				
 				switch( TRUE ) {
 						
