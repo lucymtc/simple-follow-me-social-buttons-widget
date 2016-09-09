@@ -26,9 +26,8 @@ sfmsb.IconView = Backbone.View.extend({
 	},
 
 	addToSelection: function( event ){
-
-		var selection = sfmsb.iconsListsCollections.selection;
-
+		var widgetID = $(event.currentTarget).closest( '.widget' ).attr( 'id' );
+		var selection = sfmsb.iconsListsCollections.selection[widgetID];
 		var model = new sfmsb.IconModel({
 			id: this.model.get('id'), // used for backbone's reference
 			name: this.model.get('name'),

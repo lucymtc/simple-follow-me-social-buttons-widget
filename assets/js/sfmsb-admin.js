@@ -32,9 +32,8 @@ sfmsb.IconView = Backbone.View.extend({
 	},
 
 	addToSelection: function( event ){
-
-		var selection = sfmsb.iconsListsCollections.selection;
-
+		var widgetID = $(event.currentTarget).closest( '.widget' ).attr( 'id' );
+		var selection = sfmsb.iconsListsCollections.selection[widgetID];
 		var model = new sfmsb.IconModel({
 			id: this.model.get('id'), // used for backbone's reference
 			name: this.model.get('name'),
@@ -115,8 +114,6 @@ sfmsb.IconsView = Backbone.View.extend({
 
 sfmsb.SelectionView = Backbone.View.extend({
 
-	el: '.sfmsb-selection',
-
 	initialize: function(){
 		this.render();
 		this.listenTo( this.collection, 'add remove', this.addRemove, this );
@@ -169,11 +166,31 @@ sfmsb.widget = (function(){
 		});
 
 		// Users selection.
-		var selection = {};
-		sfmsb.iconsListsCollections.selection = new sfmsb.IconsCollection( selection );
-		sfmsb.iconsLists.selection = new sfmsb.SelectionView({
-			collection: sfmsb.iconsListsCollections.selection
+		//
+		_.each( document.querySelectorAll( '.sfmsb-selection' ), function( el, key ){
+			var widgetID = el.dataset.widget;
+			var selection = {};
+
+			sfmsb.iconsListsCollections.selection = sfmsb.iconsListsCollections.selection || [];
+			sfmsb.iconsLists.selection = sfmsb.iconsLists.selection || [];
+
+			sfmsb.iconsListsCollections.selection[ widgetID ] = new sfmsb.IconsCollection( selection );
+			sfmsb.iconsLists.selection[ widgetID ] = new sfmsb.SelectionView({
+				collection: sfmsb.iconsListsCollections.selection[ widgetID ],
+				el: '#sfmsb-selection-' + widgetID,
+			});
+			console.log( sfmsb.iconsListsCollections.selection[ widgetID ] );
+			console.log( sfmsb.iconsLists.selection[ widgetID ] );
+			console.log('------');
 		});
+
+		console.log( 'end', sfmsb.iconsLists.selection );
+
+		// var selection = {};
+		// sfmsb.iconsListsCollections.selection = new sfmsb.IconsCollection( selection );
+		// sfmsb.iconsLists.selection = new sfmsb.SelectionView({
+		// 	collection: sfmsb.iconsListsCollections.selection
+		// });
 	}
 
 	/**

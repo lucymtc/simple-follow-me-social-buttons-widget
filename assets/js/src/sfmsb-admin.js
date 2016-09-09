@@ -22,11 +22,31 @@ sfmsb.widget = (function(){
 		});
 
 		// Users selection.
-		var selection = {};
-		sfmsb.iconsListsCollections.selection = new sfmsb.IconsCollection( selection );
-		sfmsb.iconsLists.selection = new sfmsb.SelectionView({
-			collection: sfmsb.iconsListsCollections.selection
+		//
+		_.each( document.querySelectorAll( '.sfmsb-selection' ), function( el, key ){
+			var widgetID = el.dataset.widget;
+			var selection = {};
+
+			sfmsb.iconsListsCollections.selection = sfmsb.iconsListsCollections.selection || [];
+			sfmsb.iconsLists.selection = sfmsb.iconsLists.selection || [];
+
+			sfmsb.iconsListsCollections.selection[ widgetID ] = new sfmsb.IconsCollection( selection );
+			sfmsb.iconsLists.selection[ widgetID ] = new sfmsb.SelectionView({
+				collection: sfmsb.iconsListsCollections.selection[ widgetID ],
+				el: '#sfmsb-selection-' + widgetID,
+			});
+			console.log( sfmsb.iconsListsCollections.selection[ widgetID ] );
+			console.log( sfmsb.iconsLists.selection[ widgetID ] );
+			console.log('------');
 		});
+
+		console.log( 'end', sfmsb.iconsLists.selection );
+
+		// var selection = {};
+		// sfmsb.iconsListsCollections.selection = new sfmsb.IconsCollection( selection );
+		// sfmsb.iconsLists.selection = new sfmsb.SelectionView({
+		// 	collection: sfmsb.iconsListsCollections.selection
+		// });
 	}
 
 	/**

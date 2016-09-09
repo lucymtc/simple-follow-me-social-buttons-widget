@@ -57,7 +57,7 @@ class SFMSB_Widget extends WP_Widget {
 			<div class="icons-panel sfmsb-group-<?php echo esc_attr( $key ); ?>"></div>
 		<?php } ?>
 
-			<div class="sfmsb-selection"></div>
+			<div class="sfmsb-selection" data-widget="<?php echo esc_attr( $this->id ) ?>" id="sfmsb-selection-<?php echo esc_attr( $this->id ) ?>"></div>
 			<input type="text" name="sfmsb-selection" />
 		</div><!--form-wrapper-->
 		<?php

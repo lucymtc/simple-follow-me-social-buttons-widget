@@ -3,8 +3,6 @@
  */
 sfmsb.SelectionView = Backbone.View.extend({
 
-	el: '.sfmsb-selection',
-
 	initialize: function(){
 		this.render();
 		this.listenTo( this.collection, 'add remove', this.addRemove, this );
